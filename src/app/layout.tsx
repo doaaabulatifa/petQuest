@@ -10,6 +10,7 @@ import {
 } from "@clerk/nextjs";
 // import { auth } from "@clerk/nextjs/server";
 import Headers from "./components/Headers";
+import Footer from "./components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,29 +26,27 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-    <html lang="en">
-      <body>
-        <header>
-        <Headers/>
-          <SignedOut>
-            <SignInButton />
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
-        
-        </header>
-        <main>
-          <SignedOut>{children}</SignedOut>
+      <html lang="en">
+        <body>
+          <header>
+            <Headers />
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </header>
+          <main>
+            <SignedOut>{children}</SignedOut>
 
-          <SignedIn>
-            {children}
-   
-          </SignedIn>
-        </main>
-      </body>
-    </html>
-  </ClerkProvider>
-);
-
+            <SignedIn>{children}</SignedIn>
+          </main>
+          <footer>
+            <Footer />
+          </footer>
+        </body>
+      </html>
+    </ClerkProvider>
+  );
 }
