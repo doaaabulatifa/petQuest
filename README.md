@@ -1,19 +1,24 @@
-# 🐾 [PetQuest](https://petquest.vercel.app) 🐾
+# 🐾 https://petquest.vercel.app 🐾
 
 ## petQuest
 
 ---
 
-PetQuest is an app that ...
+petQuest is a full-stack web application that allows the user to create a profile, create posts, and comment on other user’s posts.
+
+The project is built using Next.js with the /app router and Tailwind CSS, and uses Clerk for user authentication. The data is stored in a Postgres database, which is created and accessed with raw SQL queries using the pg package.
 
 ---
 
 ## Features
 
-- Feature 1
-- Feature 2
-- Feature 3
-- Feature 4
+- View a list of posts
+- View a single post
+- Create a post
+- Comment on posts
+- View a user’s profile
+- Create a profile
+- User authentication
 
 ---
 
