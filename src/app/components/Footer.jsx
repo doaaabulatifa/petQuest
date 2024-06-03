@@ -4,7 +4,7 @@ import PetQuestIconSmall from "../../../public/PetQuestIconSmall.png";
 
 export default function Headers() {
   return (
-    <div className="w-screen absolute bottom-0 left-0 border-t-black border-t-2">
+    <div className="w-screen absolute left-0 border-t-black border-t-2">
       <div className="flex items-center justify-around pt-6">
         <Link className="min-w-40 flex justify-center" href="/">
           <Image src={PetQuestIconSmall} height={100} width={100} />
