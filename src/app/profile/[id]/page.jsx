@@ -3,7 +3,7 @@ import { db } from "@/lib/db";
 
 export async function generateMetadata({ params }) {
   const userId = params.id;
-  const result = await db.query(`SELECT * FROM users WHERE  id = '${userId}'`);
+  const result = await db.query(`SELECT * FROM users2 WHERE  id = '${userId}'`);
   const user = result.rows[0];
 
   return {
@@ -14,7 +14,7 @@ export async function generateMetadata({ params }) {
 
 export default async function user({ params }) {
   const userId = params.id;
-  const result = await db.query(`SELECT * FROM users WHERE id = '${userId}'`);
+  const result = await db.query(`SELECT * FROM users2 WHERE id = '${userId}'`);
   const user = result.rows[0];
   console.log(user);
 
