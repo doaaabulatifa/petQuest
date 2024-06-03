@@ -1,6 +1,8 @@
 import { db } from "@/lib/db";
+import AddPostForm from "../components/AddPostForm"
 
 import Link from "next/link";
+import pet from "./[id]/page";
 
 export default async function Pets() {
   "use server";
@@ -23,9 +25,14 @@ export default async function Pets() {
                 <h3 >{pet.image_url}</h3>
               </div>
             </Link>
+          
           </div>
+          
         ))}
+          <AddPostForm  />
+         
       </div>
+    
     </div>
   );
 }
