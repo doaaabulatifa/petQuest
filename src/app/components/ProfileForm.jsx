@@ -25,7 +25,7 @@ export default function ProfileForm() {
         Create your Profile
       </h2>
       <form
-        className="bg-red-200 rounded-md p-2 flex flex-col items-end"
+        className="bg-blue-200 rounded-md p-2 flex flex-col items-end"
         action={handleUpdateProfile}
       >
         <fieldset className="mb-2">
