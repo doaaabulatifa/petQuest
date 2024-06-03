@@ -16,13 +16,10 @@ export default async function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className="relative">
-          <header>
-            <NavBar />
-          </header>
-          <main>{children}</main>
-          <footer>
-            <Footer />
-          </footer>
+          <NavBar />
+          {children}
+
+          <Footer />
         </body>
       </html>
     </ClerkProvider>

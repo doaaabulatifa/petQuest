@@ -3,8 +3,8 @@ import Image from "next/image";
 import { SignedOut, SignInButton, SignedIn, UserButton } from "@clerk/nextjs";
 
 const NavBar = () => (
-  <header className="w-full  absolute z-10">
-    <nav className="max-w-[1440px] mx-auto flex justify-between items-center sm:px-16 px-6 py-4 bg-transparent">
+  <header className="w-full fixed z-10 -top-0 -left-0">
+    <nav className=" mx-auto flex justify-between items-center sm:px-16 px-6 py-4 bg-transparent">
       <Link href="/" className="flex justify-center items-center">
         <Image
           src="/logo.svg"
@@ -15,7 +15,7 @@ const NavBar = () => (
         />
       </Link>
       <SignedOut>
-        <SignInButton className="border bg-white border-white rounded-full py-3 px-10 text-blue-600" />
+        <SignInButton className="border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600" />
       </SignedOut>
       <SignedIn>
         <UserButton />
