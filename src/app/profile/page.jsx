@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default async function Profiles() {
   "use server";
-  const result = await db.query(`SELECT * FROM users`);
+  const result = await db.query(`SELECT * FROM users2`);
   const profiles = result.rows;
 
   return (
