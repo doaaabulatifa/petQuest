@@ -5,13 +5,13 @@ import { redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";
 
 
-export default async function Addcomment({postId},{userId}) {
+export default async function Addcomment({postId}) {
 
     async function handleAddComment(formData) {
       "use server";
   
       // const user_name = formData.get("user_name");
-      // const { userId } = auth();
+      const { userId } = auth();
       console.log({userId})
     
       const idtst= await db.query(`SELECT id FROM users2 WHERE clerk_id = '${userId}'`);

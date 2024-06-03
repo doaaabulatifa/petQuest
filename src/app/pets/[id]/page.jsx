@@ -1,6 +1,7 @@
 
 import { db } from "@/lib/db";
 import AddComment from "../../components/Addcomment";
+import Showcomment from "../../components/Showcomment"
 
 
 
@@ -47,6 +48,7 @@ export default async function pet({ params }) {
         <h6>updated_at: {new Date(pet.updated_at).toLocaleString()}</h6>
         <p>pet location: {pet.location}</p>
         <AddComment postId={pet.id} />
+        <Showcomment postId={pet.id} />
         
       </div>
     </div>
