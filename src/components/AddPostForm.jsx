@@ -1,7 +1,42 @@
+import { db } from "@/lib/db";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
+import { auth } from "@clerk/nextjs/server";
+
 export default function AddPostForm() {
+  async function handleAddPost(formData) {
+    "use server";
+
+    const { userId } = auth();
+
+    const idtst = await db.query(
+      `SELECT id FROM users2 WHERE clerk_id = '${userId}'`
+    );
+
+    const profileId = idtst.rows[0].id;
+
+    const name = formData.get("name");
+    const species = formData.get("species");
+    const breed = formData.get("breed");
+    const age = parseInt(formData.get("age"));
+    const location = formData.get("location");
+    const description = formData.get("description");
+    const image_url = formData.get("image_url");
+    const status = formData.get("status");
+    const created_at = new Date().toISOString();
+
+    const updated_at = new Date().toISOString();
+    await db.query(
+      `INSERT INTO pets (name,species,breed,age,location,description,image_url,status, user_id,created_at,updated_at) values ('${name}', '${species}','${breed}','${age}','${location}','${description}','${image_url}','${status}', '${profileId}','${created_at}','${updated_at}')`
+    );
+
+    revalidatePath("/");
+
+    redirect("/");
+  }
   return (
     <div>
-      <form className="flex flex-col items-center">
+      <form className="flex flex-col items-center" action={handleAddPost}>
         <p className="text-xl font-medium py-2">Make a post</p>
         <label className="py-2" htmlFor="name">
           Name
@@ -21,7 +56,7 @@ export default function AddPostForm() {
           <option value="bird">Bird</option>
           <option value="other">Other</option>
         </select>
-        <label className="py-2" htmlFor="breed">
+        <label className="py-2" htmlFor="breed" name="breed">
           Breed
         </label>
         <select className="w-1/12 border-2 border-black p-1" name="breed">
@@ -33,11 +68,21 @@ export default function AddPostForm() {
         <label className="py-2" htmlFor="age">
           Age
         </label>
-        <select className="w-1/12 border-2 border-black p-1" name="age">
-          <option value="">option 1</option>
-          <option value="">option 2</option>
-          <option value="">option 3</option>
-          <option value="">option 4</option>
+        <input
+          className="w-1/12 border-2 border-black p-1"
+          name="age"
+          type="number"
+          placeholder="Age"
+        />
+
+        <label className="py-2" htmlFor="location">
+          Location
+        </label>
+        <select className="w-1/12 border-2 border-black p-1">
+          <option value="">norwich</option>
+          <option value="">Birmigham</option>
+          <option value="">hull</option>
+          <option value="">London</option>
         </select>
         <label className="py-2" htmlFor="description">
           Description
@@ -61,10 +106,8 @@ export default function AddPostForm() {
           Status
         </label>
         <select className="w-1/12 border-2 border-black p-1" name="status">
-          <option value="">option 1</option>
-          <option value="">option 2</option>
-          <option value="">option 3</option>
-          <option value="">option 4</option>
+          <option value="">avaliable</option>
+          <option value="">adopted</option>
         </select>
         <button className="m-4 w-1/12 border-2 border-black p-1" type="submit">
           Add Post

@@ -23,6 +23,14 @@
   @apply w-1/2 p-16;
 }
 
+.petimage {
+  @apply h-96 w-auto;
+}
+
+.petinfo {
+  @apply justify-evenly padding-x;
+}
+
 /* START: General styles */
 .max-width {
   @apply max-w-[1440px] mx-auto;

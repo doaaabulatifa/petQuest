@@ -16,9 +16,10 @@ JOIN
     <div>
       <h4>comments:</h4>
       {comments.map((commentt) => (
-        <div key={commentt.id}>
-          {/* <p>{comment.id}</p> */}
-          {/* <h2>{comment.user_name}</h2> */}
+        <div
+          className="flex flex-col padding-y padding-x border"
+          key={commentt.id}
+        >
           <p>{commentt.username}</p>
           <p>{commentt.content}</p>
         </div>
