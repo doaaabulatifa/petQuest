@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import Header from "../components/Header"
 import { SignedOut, SignInButton, SignedIn, UserButton } from "@clerk/nextjs";
 
 const NavBar = () => (
@@ -14,6 +15,7 @@ const NavBar = () => (
           className="object-contain"
         />
       </Link>
+      <Header />
       <SignedOut>
         <SignInButton className="border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600" />
       </SignedOut>
