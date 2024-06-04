@@ -11,8 +11,16 @@
   font-family: "Manrope", sans-serif;
 }
 
+.smallmargintop {
+  @apply mt-12;
+}
+
 .margintop {
   @apply my-32;
+}
+
+.about {
+  @apply w-1/2 p-16;
 }
 
 /* START: General styles */
