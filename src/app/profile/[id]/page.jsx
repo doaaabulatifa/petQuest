@@ -29,6 +29,7 @@ export default async function user({ params }) {
         <p>bio: {user.bio}</p>
         <p>location: {user.location}</p>
         {/* <ShowUserPosts userId={user.id} /> */}
+        
       </div>
     </div>
   );
