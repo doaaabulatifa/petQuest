@@ -1,5 +1,5 @@
-// import ShowUserPosts from "../../components/ShowUserposts";
 import { db } from "@/lib/db";
+import ShowUserPosts from "@/components/ShowUserPosts";
 
 //metadata
 export async function generateMetadata({ params }) {
@@ -18,7 +18,6 @@ export default async function user({ params }) {
   const userId = params.id;
   const result = await db.query(`SELECT * FROM users2 WHERE id = '${userId}'`);
   const user = result.rows[0];
-  console.log(user);
 
   return (
     <div className="flex-center flex-col text-center margintop">
@@ -28,8 +27,8 @@ export default async function user({ params }) {
         <p>email: {user.email}</p>
         <p>bio: {user.bio}</p>
         <p>location: {user.location}</p>
-        {/* <ShowUserPosts userId={user.id} /> */}
       </div>
+      <ShowUserPosts userId={user.id} />
     </div>
   );
 }
