@@ -27,6 +27,14 @@
   @apply h-96 w-auto;
 }
 
+.userimage {
+  @apply h-32 w-auto;
+}
+
+.usercontainer {
+  @apply h-60 w-60 m-10;
+}
+
 .petinfo {
   @apply justify-evenly padding-x;
 }
