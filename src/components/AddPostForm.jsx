@@ -2,6 +2,10 @@ import { db } from "@/lib/db";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";
+import Link from "next/link";
+import Cities from "@/components/Cities";
+import Pets from "@/components/Pets";
+import Breeds from "@/components/Breeds";
 
 export default function AddPostForm() {
   async function handleAddPost(formData) {
@@ -35,14 +39,17 @@ export default function AddPostForm() {
     redirect("/");
   }
   return (
-    <div>
-      <form className="flex flex-col items-center" action={handleAddPost}>
-        <p className="text-xl font-medium py-2">Make a post</p>
+    <div className="margintop flex flex-col items-center">
+      <form
+        className="border paddingform flex flex-col items-center"
+        action={handleAddPost}
+      >
+        <p className="text-xl font-medium py-2">Make a new post</p>
         <label className="py-2" htmlFor="name">
           Name
         </label>
         <input
-          className="w-1/12 border-2 border-black p-1"
+          className="input border rounded-lg border-black p-2"
           name="name"
           type="text"
           placeholder="Pet's Name"
@@ -50,45 +57,29 @@ export default function AddPostForm() {
         <label className="py-2" htmlFor="species">
           Species
         </label>
-        <select className="w-1/12 border-2 border-black p-1" name="species">
-          <option value="dog">Dog</option>
-          <option value="cat">Cat</option>
-          <option value="bird">Bird</option>
-          <option value="other">Other</option>
-        </select>
+        <Pets />
         <label className="py-2" htmlFor="breed" name="breed">
           Breed
         </label>
-        <select className="w-1/12 border-2 border-black p-1" name="breed">
-          <option value="">option 1</option>
-          <option value="">option 2</option>
-          <option value="">option 3</option>
-          <option value="">option 4</option>
-        </select>
+        <Breeds />
         <label className="py-2" htmlFor="age">
-          Age
+          Age (Years)
         </label>
         <input
-          className="w-1/12 border-2 border-black p-1"
+          className="input border rounded-lg border-black p-2"
           name="age"
           type="number"
           placeholder="Age"
         />
-
         <label className="py-2" htmlFor="location">
           Location
         </label>
-        <select className="w-1/12 border-2 border-black p-1">
-          <option value="">norwich</option>
-          <option value="">Birmigham</option>
-          <option value="">hull</option>
-          <option value="">London</option>
-        </select>
+        <Cities />
         <label className="py-2" htmlFor="description">
           Description
         </label>
         <textarea
-          className="w-1/5 h-60 resize-none border-2 border-black p-1"
+          className="textarea"
           name="description"
           type="text"
           placeholder="Tell us about your pet!"
@@ -97,7 +88,7 @@ export default function AddPostForm() {
           Add Image
         </label>
         <input
-          className="w-1/6 border-2 border-black p-1"
+          className="input border rounded-lg border-black p-2"
           name="image"
           type="file"
           accept="image/*"
@@ -105,14 +96,27 @@ export default function AddPostForm() {
         <label className="py-2" htmlFor="status">
           Status
         </label>
-        <select className="w-1/12 border-2 border-black p-1" name="status">
-          <option value="">avaliable</option>
-          <option value="">adopted</option>
+        <select
+          className="input border rounded-lg border-black p-2"
+          name="status"
+        >
+          <option value="available">Avaliable</option>
+          <option value="processing">Processing</option>
+          <option value="adopted">Adopted</option>
         </select>
-        <button className="m-4 w-1/12 border-2 border-black p-1" type="submit">
+        <button
+          className="smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
+          type="submit"
+        >
           Add Post
         </button>
       </form>
+      <Link
+        className="smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
+        href="/profile"
+      >
+        Return to profiles
+      </Link>
     </div>
   );
 }

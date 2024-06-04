@@ -10,17 +10,17 @@ export default async function Profiles() {
 
   return (
     <div className="flex flex-col items-center margintop">
-      <h1>Users</h1>
-      <h2 className="padding-y">Click on a user to visit their profile!</h2>
+      <h1 className="text-xl font-medium">User Profiles</h1>
+      <h2 className="padding-y">Click on a profile to visit their profile!</h2>
       <div className="flex padding-y">
         {profiles.map((profile, index) => (
           <div className="usercontainer padding-y" key={index}>
             <Link href={`/profile/${profile.id}`} key={profile.id}>
-              <div className="flex flex-col items-center justify-between border padding-y">
+              <div className="flex flex-col items-center justify-between border rounded-lg padding-y">
                 <img
                   src={profile.profile_picture}
                   alt={profile.username}
-                  className="userimage"
+                  className="userimage rounded-lg"
                 />
                 <h3 className="padding-y">{profile.username}</h3>
               </div>
