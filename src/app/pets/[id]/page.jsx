@@ -20,8 +20,6 @@ export default async function pet({ params }) {
   const result = await db.query(`SELECT * FROM pets WHERE id = '${petId}'`);
   const pet = result.rows[0];
 
-  console.log(pet);
-
   return (
     <div className="w-screen margintop flex justify-center">
       <div className="flex flex-col items-center">
@@ -33,10 +31,8 @@ export default async function pet({ params }) {
             <p>Age: {pet.age} years</p>
             <p>Location: {pet.location}</p>
             <p>Description: {pet.description}</p>
-
             <p>Species: {pet.species}</p>
             <p>Breed: {pet.breed}</p>
-
             <p>Status: {pet.status}</p>
             <h6>Posted: {new Date(pet.created_at).toLocaleString()}</h6>
             <h6>Updated: {new Date(pet.updated_at).toLocaleString()}</h6>

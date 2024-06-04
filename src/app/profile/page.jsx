@@ -6,16 +6,23 @@ export default async function Profiles() {
   const result = await db.query(`SELECT * FROM users2`);
   const profiles = result.rows;
 
+  console.log(profiles);
+
   return (
-    <div>
-      <h1>users</h1>
-      <div>
+    <div className="flex flex-col items-center margintop">
+      <h1>Users</h1>
+      <h2 className="padding-y">Click on a user to visit their profile!</h2>
+      <div className="flex padding-y">
         {profiles.map((profile, index) => (
-          <div key={index}>
-            <p>Click on my name to visit my profile:</p>
+          <div className="usercontainer padding-y" key={index}>
             <Link href={`/profile/${profile.id}`} key={profile.id}>
-              <div>
-                <h3>{profile.username}</h3>
+              <div className="flex flex-col items-center justify-between border padding-y">
+                <img
+                  src={profile.profile_picture}
+                  alt={profile.username}
+                  className="userimage"
+                />
+                <h3 className="padding-y">{profile.username}</h3>
               </div>
             </Link>
           </div>

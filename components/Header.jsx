@@ -1,25 +1,26 @@
 import Link from "next/link";
 
-
-export default function Headers(){
-    return (
-        <>
-         <header>
-
- 
-        <nav >
-
-              <ul >
-        <Link  href="/">Home</Link>
-        <Link   href="/profile">Profile</Link>
-        <Link  href="/pets">Pet Post</Link>
-        <Link  href="/about">About</Link>
-
-
-        </ul>
+export default function Headers() {
+  return (
+    <>
+      <header>
+        <nav>
+          <ul>
+            <Link className="padding-x hover:underline" href="/">
+              Home
+            </Link>
+            <Link className="padding-x hover:underline" href="/profile">
+              Profiles
+            </Link>
+            <Link className="padding-x hover:underline" href="/pets">
+              Pets
+            </Link>
+            <Link className="padding-x hover:underline" href="/about">
+              About
+            </Link>
+          </ul>
         </nav>
-
-        </header>
-        </>
-    )
+      </header>
+    </>
+  );
 }
