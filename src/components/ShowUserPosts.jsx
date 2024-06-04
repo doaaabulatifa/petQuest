@@ -8,8 +8,8 @@ export default async function ShowUserPosts({ userId }) {
   ]);
 
   return (
-    <div>
-      <h2>User Posts:</h2>
+    <div className="smallmargintop">
+      <h2 className="text-xl font-medium">User Posts:</h2>
       {result.length > 0 ? (
         userPosts.map((pet) => (
           <div key={pet.id}>
@@ -17,7 +17,7 @@ export default async function ShowUserPosts({ userId }) {
           </div>
         ))
       ) : (
-        <p>No posts found for this user.</p>
+        <p className="smallmargintop">No posts found for this user.</p>
       )}
     </div>
   );

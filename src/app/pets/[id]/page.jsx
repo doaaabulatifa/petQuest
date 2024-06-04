@@ -1,7 +1,7 @@
 import { db } from "@/lib/db";
 import AddComment from "@/components/AddComment";
 import Showcomment from "@/components/ShowComment";
-// import Image from "next/image";
+import Link from "next/link";
 
 //metadata
 export async function generateMetadata({ params }) {
@@ -23,7 +23,7 @@ export default async function pet({ params }) {
   return (
     <div className="w-screen margintop flex justify-center">
       <div className="flex flex-col items-center">
-        <h1 className="padding-y">Meet {pet.name}</h1>
+        <h1 className="text-xl font-medium padding-y">Meet {pet.name}</h1>
         <div className="flex border padding-x padding-y">
           <img src={pet.image_url} alt={pet.breed} className="petimage" />
           <div className="flex flex-col petinfo">
@@ -37,7 +37,19 @@ export default async function pet({ params }) {
             <h6>Posted: {new Date(pet.created_at).toLocaleString()}</h6>
             <h6>Updated: {new Date(pet.updated_at).toLocaleString()}</h6>
           </div>
-        </div>{" "}
+        </div>
+        <Link
+          className=" smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
+          href="/"
+        >
+          Make an enquiry
+        </Link>
+        <Link
+          className=" smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
+          href="/pets"
+        >
+          Back to pets
+        </Link>
         <AddComment postId={pet.id} />
         <Showcomment postId={pet.id} />
       </div>

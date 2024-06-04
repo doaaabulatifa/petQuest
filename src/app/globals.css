@@ -11,6 +11,18 @@
   font-family: "Manrope", sans-serif;
 }
 
+.textarea {
+  @apply border rounded-lg resize-none p-2 h-40 w-96;
+}
+
+.input {
+  @apply w-96;
+}
+
+.formcontainer {
+  @apply h-60 w-96 m-10;
+}
+
 .smallmargintop {
   @apply mt-12;
 }
@@ -27,6 +39,14 @@
   @apply h-96 w-auto;
 }
 
+.petimage2 {
+  @apply h-96 w-60;
+}
+
+.petcardimage {
+  @apply h-5/6 w-full;
+}
+
 .userimage {
   @apply h-32 w-auto;
 }
@@ -37,6 +57,10 @@
 
 .petinfo {
   @apply justify-evenly padding-x;
+}
+
+.paddingform {
+  @apply px-48 py-10;
 }
 
 /* START: General styles */
