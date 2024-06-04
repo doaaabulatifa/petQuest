@@ -39,7 +39,7 @@ export const petAges = [
   { title: "Senior", value: "Senior" },
 ];
 
-export const petTypes = [
+export const petSpecies = [
   {
     title: "Species",
     value: "",

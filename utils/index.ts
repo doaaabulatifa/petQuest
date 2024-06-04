@@ -59,11 +59,15 @@ export const generatePetImageUrl = (pet: PetProps, angle?: string) => {
 
   url.searchParams.append('customer', process.env.NEXT_PUBLIC_IMAGIN_API_KEY || '');
   url.searchParams.append('breed', breed);
-  url.searchParams.append('sex', sex.split(" ")[0]);
+
+  if (sex) {
+    url.searchParams.append('sex', sex.split(" ")[0]);
+  }
+
   url.searchParams.append('zoomType', 'fullscreen');
   url.searchParams.append('location', location);
-  // url.searchParams.append('zoomLevel', zoomLevel);
   url.searchParams.append('angle', `${angle}`);
 
   return `${url}`;
 }
+

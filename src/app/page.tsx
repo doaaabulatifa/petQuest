@@ -1,6 +1,7 @@
-import { fetchPets } from "../../utils";
+import React, { useEffect, useState } from "react";
+import { fetchPets } from "../../utils/fetchPets";
 import { HomeProps } from "../../types";
-import { petTypes, petAges } from "../../constants";
+import { petSpecies, petAges } from "../../constants";
 import {
   PetCard,
   ShowMore,
@@ -12,10 +13,12 @@ import {
 export default async function Home({ searchParams }: HomeProps) {
   const allPets = await fetchPets({
     breed: searchParams.breed || "",
+    colour: searchParams.colour || "",
     age: searchParams.age || "",
     sex: searchParams.sex || "",
     limit: searchParams.limit || 10,
     location: searchParams.location || "",
+    offset: searchParams.offset || 0,
   });
 
   const isDataEmpty = !Array.isArray(allPets) || allPets.length < 1 || !allPets;
@@ -34,7 +37,7 @@ export default async function Home({ searchParams }: HomeProps) {
           <SearchBar />
 
           <div className="home__filter-container">
-            <CustomFilter title="type" options={petTypes} />
+            <CustomFilter title="species" options={petSpecies} />
             <CustomFilter title="age" options={petAges} />
           </div>
         </div>
@@ -43,7 +46,7 @@ export default async function Home({ searchParams }: HomeProps) {
           <section>
             <div className="home__pets-wrapper">
               {allPets?.map((pet) => (
-                <PetCard pet={pet} />
+                <PetCard key={pet.id} pet={pet} />
               ))}
             </div>
 

@@ -1,14 +1,20 @@
 import { MouseEventHandler } from "react";
 
 export interface PetProps {
+  user_id: number;
   name: string;
   species: string;
   breed: string;
+  colour?: string;
+  size?: string;
+  sex?: string;
   age: number;
-  colour: string;
-  sex: string;
   location: string;
-  size: string; // e.g., small, medium, large
+  description: string;
+  image_url: string;
+  status: string;
+  created_at: string;
+  updated_at: string;
 }
 
 export interface FilterProps {
@@ -19,6 +25,7 @@ export interface FilterProps {
   sex?: string;
   location?: string;
   limit?: number;
+  offset?: number;
 }
 
 export interface HomeProps {
@@ -43,8 +50,8 @@ export interface CustomButtonProps {
 }
 
 export interface OptionProps {
-  title: string;
-  value: string;
+  species: string;
+  location: string;
 }
 
 export interface CustomFilterProps {
