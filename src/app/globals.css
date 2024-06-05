@@ -1,3 +1,5 @@
+/* src/styles/globals.css */
+
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
 
 @tailwind base;
@@ -36,19 +38,19 @@
 }
 
 .petimage {
-  @apply h-96 w-auto;
+  @apply h-96 w-auto object-cover rounded-lg;
 }
 
 .petimage2 {
-  @apply h-96 w-60;
+  @apply h-96 w-60 object-cover rounded-lg;
 }
 
 .petcardimage {
-  @apply h-5/6 w-full;
+  @apply h-5/6 w-full object-cover rounded-lg;
 }
 
 .userimage {
-  @apply h-32 w-auto;
+  @apply h-32 w-auto object-cover rounded-full;
 }
 
 .usercontainer {
@@ -56,7 +58,7 @@
 }
 
 .petinfo {
-  @apply justify-evenly padding-x;
+  @apply justify-evenly px-6 py-4;
 }
 
 .paddingform {
@@ -87,6 +89,13 @@
 .custom-btn {
   @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none;
 }
+
+/* button {
+  @apply py-2 px-4 bg-blue-500 text-white rounded-lg transition duration-300;
+} */
+/* button:hover {
+  @apply bg-blue-600;
+} */
 /* END: General styles */
 
 /* START: Hero styles */

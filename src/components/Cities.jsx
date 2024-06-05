@@ -3,6 +3,7 @@ export default function Cities() {
     <select
       name="location"
       className="input border rounded-lg border-black p-2"
+      required
     >
       <option value="Aberdeen">Aberdeen</option>
       <option value="Armagh">Armagh</option>

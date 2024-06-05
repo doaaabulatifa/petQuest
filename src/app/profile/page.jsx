@@ -6,8 +6,6 @@ export default async function Profiles() {
   const result = await db.query(`SELECT * FROM users2`);
   const profiles = result.rows;
 
-  console.log(profiles);
-
   return (
     <div className="flex flex-col items-center margintop">
       <h1 className="text-xl font-medium">User Profiles</h1>

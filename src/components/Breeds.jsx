@@ -1,6 +1,10 @@
 export default function Breeds() {
   return (
-    <select className="input border rounded-lg border-black p-2" name="breed">
+    <select
+      className="input border rounded-lg border-black p-2"
+      name="breed"
+      required
+    >
       <optgroup label="Cat">
         <option value="Abyssinian">Abyssinian</option>
         <option value="Bengal">Bengal</option>
