@@ -1,4 +1,5 @@
 import { db } from "@/lib/db";
+import { SignedIn } from "@clerk/nextjs";
 import Link from "next/link";
 
 export default async function Pets() {
@@ -12,12 +13,14 @@ export default async function Pets() {
         All Pets
       </h1>
       <div className="flex justify-center">
-        <Link
-          className="border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
-          href="/newpost"
-        >
-          Make a new post
-        </Link>
+        <SignedIn>
+          <Link
+            className="border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
+            href="/newpost"
+          >
+            Make a new post
+          </Link>
+        </SignedIn>
       </div>
 
       <div className="smallmargintop flex flex-wrap petinfo padding-y">
