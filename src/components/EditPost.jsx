@@ -126,13 +126,6 @@ export default function EditPost({ postId }) {
           >
             Update
           </button>
-
-          <Link
-            className="smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
-            href="/profile"
-          >
-            Return to profiles
-          </Link>
         </div>
       </form>
     </div>
