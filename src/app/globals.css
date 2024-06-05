@@ -90,12 +90,12 @@
   @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none;
 }
 
-button {
+/* button {
   @apply py-2 px-4 bg-blue-500 text-white rounded-lg transition duration-300;
-}
-button:hover {
+} */
+/* button:hover {
   @apply bg-blue-600;
-}
+} */
 /* END: General styles */
 
 /* START: Hero styles */
