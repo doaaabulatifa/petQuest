@@ -10,7 +10,7 @@ export default async function Profiles() {
     <div className="flex flex-col items-center margintop">
       <h1 className="text-xl font-medium">User Profiles</h1>
       <h2 className="padding-y">Click on a profile to visit their profile!</h2>
-      <div className="flex padding-y">
+      <div className="flex flex-wrap justify-center padding-y">
         {profiles.map((profile, index) => (
           <div className="usercontainer padding-y" key={index}>
             <Link href={`/profile/${profile.id}`} key={profile.id}>
