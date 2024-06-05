@@ -2,7 +2,11 @@
 import { getPetData } from "@/lib/data";
 import Petinfo from "@/components/Petinfo";
 import AddComment from "@/components/AddComment";
+
 import ShowComment from "@/components/ShowComment";
+
+
+import Link from "next/link";
 
 
 export async function generateMetadata({ params }) {
@@ -25,11 +29,23 @@ export default async function Page({ params }) {
     return <div>Pet not found</div>;
   }
 
+
   return(
-    <>
-   <Petinfo pet={pet} />
+  
+
+
+    <div className="w-screen margintop flex justify-center">
+      <div className="flex flex-col items-center">
+        <h1 className="text-xl font-medium padding-y">Meet {pet.name}</h1>
+        <div className="flex border padding-x padding-y">
+           <Petinfo pet={pet} />
   <AddComment postId={pet.id} />
   <ShowComment postId={pet.id} />
-  </>
-)
+       
+       </div>
+     
+      </div>
+    </div>
+  );
+
 }

@@ -14,12 +14,13 @@ JOIN
 
   return (
     <div>
-      <h4>comments:</h4>
+      <h4 className="text-xl font-medium">Comments</h4>
       {comments.map((commentt) => (
-        <div key={commentt.id}>
-          {/* <p>{comment.id}</p> */}
-          {/* <h2>{comment.user_name}</h2> */}
-          <p>{commentt.username}</p>
+        <div
+          className="flex flex-col items-center padding-y padding-x border"
+          key={commentt.id}
+        >
+          <p>{commentt.username}:</p>
           <p>{commentt.content}</p>
         </div>
       ))}

@@ -24,18 +24,26 @@ export default async function AddComment({ postId }) {
   }
 
   return (
-    <form className="flex flex-col smallmargintop" action={handleAddComment}>
-      {/* <label htmlFor="user_name">Your name</label> */}
-      {/* <input name="user_name" id="user_name" placeholder="Name" /> */}
+    <form
+      className="formcontainer flex flex-col items-center smallmargintop"
+      action={handleAddComment}
+    >
       <input type="hidden" name="post_id" value={postId} />
-      <label htmlFor="content">Leave a comment!</label>
+      <label className="text-xl font-medium" htmlFor="content">
+        Post a comment
+      </label>
       <textarea
-        className="border"
+        className="smallmargintop textarea"
         name="content"
         id="content"
-        placeholder="content"
+        placeholder="comment"
       />
-      <button type="submit">Add comment!</button>
+      <button
+        className=" smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
+        type="submit"
+      >
+        Add comment
+      </button>
     </form>
   );
 }
