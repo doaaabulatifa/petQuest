@@ -10,12 +10,17 @@ export const metadata = {
   description: "Amazing Pets waiting to be rehomed. Look through and adopt!",
 };
 
-export default async function RootLayout({ children }) {
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   //Clerk user id
   const { userId } = auth();
 
   //Clerk info for user
   const user = await currentUser();
+  console.log(user);
 
   //SELECT profile for user
   const result = await db.query(
