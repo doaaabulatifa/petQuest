@@ -1,7 +1,7 @@
 "use client";
-
-import React from 'react';
-import { useRouter } from 'next/navigation';
+import React from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const Petinfo = ({ pet }) => {
   const router = useRouter();
@@ -11,23 +11,35 @@ const Petinfo = ({ pet }) => {
   };
 
   return (
-    <div className="flex-center flex-col text-center margintop">
-      <h1>{pet.name}</h1>
-      <div>
-        <h3 className="padding-y">Pet name: {pet.name}</h3>
-        <h3>Pet species: {pet.species}</h3>
-        <h3>Pet breed: {pet.breed}</h3>
-        <h3>Pet age: {pet.age}</h3>
-        <h3>Pet description: {pet.description}</h3>
-        <div>
-          <img src={pet.image_url} alt={pet.name} />
+    <div className="flex flex-col items-center">
+      <h1 className="text-xl font-medium padding-y">Meet {pet.name}</h1>
+      <div className="flex border padding-x padding-y">
+        <img src={pet.image_url} alt={pet.breed} className="petimage" />
+        <div className="flex flex-col petinfo">
+          <h3>Name: {pet.name}</h3>
+          <p>Age: {pet.age} years</p>
+          <p>Location: {pet.location}</p>
+          <p>Description: {pet.description}</p>
+          <p>Species: {pet.species}</p>
+          <p>Breed: {pet.breed}</p>
+          <p>Status: {pet.status}</p>
+          <h6>Posted: {new Date(pet.created_at).toLocaleString()}</h6>
+          <h6>Updated: {new Date(pet.updated_at).toLocaleString()}</h6>
         </div>
-        <h3>Status: {pet.status}</h3>
-        <h6>Created at: {new Date(pet.created_at).toLocaleString()}</h6>
-        <h6>Updated at: {new Date(pet.updated_at).toLocaleString()}</h6>
-        <p>Pet location: {pet.location}</p>
-        <button onClick={handleAdoptRequest}>Adopt Request</button>
       </div>
+
+      <Link
+        className=" smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
+        href="/pets"
+      >
+        Back to pets
+      </Link>
+      <button
+        className=" smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
+        onClick={handleAdoptRequest}
+      >
+        Adopt Request
+      </button>
     </div>
   );
 };
