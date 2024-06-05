@@ -3,7 +3,7 @@ import AddComment from "@/components/AddComment";
 import ShowComment from "@/components/ShowComment";
 import Link from "next/link";
 import Petinfo from "@/components/Petinfo";
-import EditPost from "@/components/EditPost"
+import EditPost from "@/components/EditPost";
 
 //metadata
 export async function generateMetadata({ params }) {
@@ -28,15 +28,12 @@ export default async function pet({ params }) {
   return (
     <div className="w-screen margintop flex justify-center">
       <div className="flex flex-col items-center">
-        <h1 className="text-xl font-medium padding-y">Meet {pet.name}</h1>
-        <div className="flex border padding-x padding-y">
-           <Petinfo pet={pet} />
-           <EditPost postId={pet.id} />
-  <AddComment postId={pet.id} />
-  <ShowComment postId={pet.id} />
-
-       </div>
-     
+        <div className="flex padding-x padding-y">
+          <Petinfo pet={pet} />
+        </div>
+        <EditPost postId={pet.id} />
+        <AddComment postId={pet.id} />
+        <ShowComment postId={pet.id} />
       </div>
     </div>
   );
