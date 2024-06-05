@@ -42,8 +42,9 @@ export default async function pet({ params }) {
           <Petinfo pet={pet} />
         </div>
         {currentUser && <EditPost postId={pet.id} />}
-
-        <AddComment postId={pet.id} />
+        <SignedIn>
+          <AddComment postId={pet.id} />
+        </SignedIn>
         <ShowComment postId={pet.id} />
       </div>
     </div>
