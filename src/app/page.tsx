@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchPets } from "../../utils/fetchPets";
-import { HomeProps } from "../../types";
+import { HomeProps, PetProps } from "../../types";
 import { petSpecies, petAges } from "../../constants";
 import {
   PetCard,

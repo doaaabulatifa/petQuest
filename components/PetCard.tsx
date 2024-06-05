@@ -37,17 +37,17 @@ const PetCard = ({ pet }: PetCardProps) => {
             <p className='text-[14px] leading-[17px]'>
               Age: {age} years
             </p>
-            <p className='text-[14px] leading-[17px]'>
+            {/* <p className='text-[14px] leading-[17px]'>
               Species: {species}
-            </p>
+            </p> */}
           </div>
           <div className='flex flex-col justify-center items-center gap-2'>
             <p className='text-[14px] leading-[17px]'>
               Location: {location}
             </p>
-            <p className='text-[14px] leading-[17px]'>
+            {/* <p className='text-[14px] leading-[17px]'>
               Colour: {colour}
-            </p>
+            </p> */}
           </div>
           <div className='flex flex-col justify-center items-center gap-2'>
             <p className='text-[14px] leading-[17px]'>
@@ -57,14 +57,14 @@ const PetCard = ({ pet }: PetCardProps) => {
               Sex: {sex}
             </p>
           </div>
-          <div className='flex flex-col justify-center items-center gap-2'>
+          {/* <div className='flex flex-col justify-center items-center gap-2'>
             <p className='text-[14px] leading-[17px]'>
               Description: {description}
             </p>
             <p className='text-[14px] leading-[17px]'>
               Status: {status}
             </p>
-          </div>
+          </div> */}
         </div>
 
         <div className="pet-card__btn-container">
