@@ -1,4 +1,3 @@
-
 import { db } from "@/lib/db";
 import AddComment from "@/components/AddComment";
 import Showcomment from "@/components/ShowComment";
@@ -16,18 +15,15 @@ export async function generateMetadata({ params }) {
   };
 }
 
-
 //edf
 export default async function pet({ params }) {
   const petId = params.id;
   const result = await db.query(`SELECT * FROM pets WHERE id = '${petId}'`);
   const pet = result.rows[0];
-//   const pet = await getPetData(params.id);
-//   const petId = pet.id;
 
-//   if (!pet) {
-//     return <div>Pet not found</div>;
-//   }
+  if (!pet) {
+    return <div>Pet not found</div>;
+  }
   return (
     <div className="w-screen margintop flex justify-center">
       <div className="flex flex-col items-center">
