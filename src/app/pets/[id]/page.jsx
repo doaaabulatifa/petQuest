@@ -2,6 +2,8 @@ import { db } from "@/lib/db";
 import AddComment from "@/components/AddComment";
 import ShowComment from "@/components/ShowComment";
 import Link from "next/link";
+import Petinfo from "@/components/Petinfo";
+import EditPost from "@/components/EditPost"
 
 //metadata
 export async function generateMetadata({ params }) {
@@ -29,8 +31,10 @@ export default async function pet({ params }) {
         <h1 className="text-xl font-medium padding-y">Meet {pet.name}</h1>
         <div className="flex border padding-x padding-y">
            <Petinfo pet={pet} />
+           <EditPost postId={pet.id} />
   <AddComment postId={pet.id} />
   <ShowComment postId={pet.id} />
+
        </div>
      
       </div>
