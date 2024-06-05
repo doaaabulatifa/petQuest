@@ -4,9 +4,11 @@ import Petinfo from "@/components/Petinfo";
 import AddComment from "@/components/AddComment";
 
 import ShowComment from "@/components/ShowComment";
+// import EditPost from "../../../components/EditPost";
 
 
-import Link from "next/link";
+// import Link from "next/link";
+
 
 
 export async function generateMetadata({ params }) {
@@ -39,8 +41,10 @@ export default async function Page({ params }) {
         <h1 className="text-xl font-medium padding-y">Meet {pet.name}</h1>
         <div className="flex border padding-x padding-y">
            <Petinfo pet={pet} />
+           {/* <EditPost postId={pet.id}/> */}
   <AddComment postId={pet.id} />
   <ShowComment postId={pet.id} />
+
        
        </div>
      
