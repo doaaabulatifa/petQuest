@@ -27,7 +27,6 @@ const Petinfo = ({ pet }) => {
           <h6>Updated: {new Date(pet.updated_at).toLocaleString()}</h6>
         </div>
       </div>
-
       <Link
         className=" smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
         href="/pets"
