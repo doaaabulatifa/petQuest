@@ -21,6 +21,11 @@ export default async function user({ params }) {
   const user = result.rows[0];
 
   return (
+
+   
+      
+        
+
     <div className="flex items-center flex-col text-center margintop">
       <h1 className="text-xl font-medium ">{user.username}'s Profile</h1>
       <div className="smallmargintop flex padding-x padding-y border">
@@ -35,6 +40,7 @@ export default async function user({ params }) {
           <p>Bio: {user.bio}</p>
           <p>Location: {user.location}</p>
         </div>
+
       </div>
       <Link
         className=" smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"

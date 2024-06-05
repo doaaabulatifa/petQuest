@@ -3,7 +3,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";
 
-export default async function Addcomment({ postId }) {
+export default async function AddComment({ postId }) {
   async function handleAddComment(formData) {
     "use server";
     const { userId } = auth();
