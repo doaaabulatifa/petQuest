@@ -1,4 +1,4 @@
-// src/lib/data.js
+
 import { db } from "@/lib/db";
 
 export async function getPetData(petId) {

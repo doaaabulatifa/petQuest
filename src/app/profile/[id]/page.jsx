@@ -42,12 +42,7 @@ export default async function user({ params }) {
         </div>
 
       </div>
-      <Link
-        className="smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
-        href="/newpost"
-      >
-        Make a new post
-      </Link>
+    
       <Link
         className="smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
         href="/profile"

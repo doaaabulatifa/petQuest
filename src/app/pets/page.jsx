@@ -14,6 +14,12 @@ export default async function Pets() {
         All Pets
       </h1>
       <div className="flex flex-wrap petinfo padding-y">
+      <Link
+        className="smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
+        href="/newpost"
+      >
+        Make a new post
+      </Link>
         {pets.map((pet, index) => (
           <div className="padding-x padding-y" key={index}>
             <Link href={`/pets/${pet.id}`} key={pet.id}>
