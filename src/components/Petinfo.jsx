@@ -1,7 +1,7 @@
 "use client";
-
-import React from 'react';
-import { useRouter } from 'next/navigation';
+import React from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const Petinfo = ({ pet }) => {
   const router = useRouter();
@@ -11,28 +11,34 @@ const Petinfo = ({ pet }) => {
   };
 
   return (
-    <div className="flex flex-col items-center my-8">
-      <h1 className="text-3xl font-semibold mb-4">{pet.name}</h1>
-      <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow-md w-full max-w-2xl">
-        <img src={pet.image_url} alt={pet.name} className="petimage mb-4" />
-        <div className="text-left w-full">
-          <h3 className="text-lg font-medium my-2">Pet name: {pet.name}</h3>
-          <h3 className="text-lg font-medium my-2">Pet species: {pet.species}</h3>
-          <h3 className="text-lg font-medium my-2">Pet breed: {pet.breed}</h3>
-          <h3 className="text-lg font-medium my-2">Pet age: {pet.age}</h3>
-          <h3 className="text-lg font-medium my-2">Pet description: {pet.description}</h3>
-          <h3 className="text-lg font-medium my-2">Status: {pet.status}</h3>
-          <p className="text-sm text-gray-500">Created at: {new Date(pet.created_at).toLocaleString()}</p>
-          <p className="text-sm text-gray-500">Updated at: {new Date(pet.updated_at).toLocaleString()}</p>
-          <p className="text-lg font-medium my-2">Pet location: {pet.location}</p>
+    <div className="flex flex-col items-center">
+      <h1 className="text-xl font-medium padding-y">Meet {pet.name}</h1>
+      <div className="flex border padding-x padding-y">
+        <img src={pet.image_url} alt={pet.breed} className="petimage" />
+        <div className="flex flex-col petinfo">
+          <h3>Name: {pet.name}</h3>
+          <p>Age: {pet.age} years</p>
+          <p>Location: {pet.location}</p>
+          <p>Description: {pet.description}</p>
+          <p>Species: {pet.species}</p>
+          <p>Breed: {pet.breed}</p>
+          <p>Status: {pet.status}</p>
+          <h6>Posted: {new Date(pet.created_at).toLocaleString()}</h6>
+          <h6>Updated: {new Date(pet.updated_at).toLocaleString()}</h6>
         </div>
-        <button 
-          onClick={handleAdoptRequest} 
-          className="mt-6 py-2 px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300"
-        >
-          Adopt Request
-        </button>
       </div>
+      <Link
+        className=" smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
+        href="/pets"
+      >
+        Back to pets
+      </Link>
+      <button
+        className=" smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
+        onClick={handleAdoptRequest}
+      >
+        Adopt Request
+      </button>
     </div>
   );
 };

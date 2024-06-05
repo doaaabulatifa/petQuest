@@ -113,9 +113,9 @@ export default function AddPostForm() {
       </form>
       <Link
         className="smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
-        href="/profile"
+        href="/pets"
       >
-        Return to profiles
+        Return to Pets
       </Link>
     </div>
   );
