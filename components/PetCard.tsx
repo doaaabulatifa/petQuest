@@ -37,18 +37,18 @@ const PetCard = ({ pet }: PetCardProps) => {
             <p className='text-[14px] leading-[17px]'>
               Age: {age} years
             </p>
-            {/* <p className='text-[14px] leading-[17px]'>
-              Species: {species}
-            </p> */}
-          </div>
-          <div className='flex flex-col justify-center items-center gap-2'>
             <p className='text-[14px] leading-[17px]'>
               Location: {location}
             </p>
-            {/* <p className='text-[14px] leading-[17px]'>
-              Colour: {colour}
-            </p> */}
           </div>
+          {/* <div className='flex flex-col justify-center items-center gap-2'>
+            <p className='text-[14px] leading-[17px]'>
+              Location: {location}
+            </p>
+            <p className='text-[14px] leading-[17px]'>
+              Colour: {colour}
+            </p>
+          </div> */}
           <div className='flex flex-col justify-center items-center gap-2'>
             <p className='text-[14px] leading-[17px]'>
               Size: {size}
