@@ -4,9 +4,7 @@ import Link from "next/link";
 export default async function Pets() {
   "use server";
   const result = await db.query(`SELECT * FROM Pets`);
-  console.log(result);
   const pets = result.rows;
-  console.log(pets);
 
   return (
     <div className="margintop padding-x">

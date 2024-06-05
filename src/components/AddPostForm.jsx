@@ -10,13 +10,10 @@ import Breeds from "@/components/Breeds";
 export default function AddPostForm() {
   async function handleAddPost(formData) {
     "use server";
-
     const { userId } = auth();
-
     const idtst = await db.query(
       `SELECT id FROM users2 WHERE clerk_id = '${userId}'`
     );
-    console.log(idtst);
     const profileId = idtst.rows[0].id;
 
     const name = formData.get("name");
@@ -30,8 +27,13 @@ export default function AddPostForm() {
     const created_at = new Date().toISOString();
     const updated_at = new Date().toISOString();
 
+    const defaultImg =
+      "https://t3.ftcdn.net/jpg/04/60/01/36/360_F_460013622_6xF8uN6ubMvLx0tAJECBHfKPoNOR5cRa.jpg";
+
+    const imageUrlToInsert = image_url || defaultImg;
+
     await db.query(
-      `INSERT INTO pets (name,species,breed,age,location,description,image_url,status, user_id,created_at,updated_at) values ('${name}', '${species}','${breed}','${age}','${location}','${description}','${image_url}','${status}', '${profileId}','${created_at}','${updated_at}')`
+      `INSERT INTO pets (name,species,breed,age,location,description,image_url,status, user_id,created_at,updated_at) values ('${name}', '${species}','${breed}','${age}','${location}','${description}','${imageUrlToInsert}','${status}', '${profileId}','${created_at}','${updated_at}')`
     );
 
     revalidatePath("/");
@@ -53,6 +55,7 @@ export default function AddPostForm() {
           name="name"
           type="text"
           placeholder="Pet's Name"
+          required
         />
         <label className="py-2" htmlFor="species">
           Species
@@ -70,6 +73,7 @@ export default function AddPostForm() {
           name="age"
           type="number"
           placeholder="Age"
+          required
         />
         <label className="py-2" htmlFor="location">
           Location
@@ -83,6 +87,7 @@ export default function AddPostForm() {
           name="description"
           type="text"
           placeholder="Tell us about your pet!"
+          required
         />
         <label className="py-2" htmlFor="image">
           Add Image
@@ -99,6 +104,7 @@ export default function AddPostForm() {
         <select
           className="input border rounded-lg border-black p-2"
           name="status"
+          required
         >
           <option value="available">Avaliable</option>
           <option value="processing">Processing</option>
@@ -113,9 +119,9 @@ export default function AddPostForm() {
       </form>
       <Link
         className="smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
-        href="/pets"
+        href="/profile"
       >
-        Return to Pets
+        Return to profiles
       </Link>
     </div>
   );
