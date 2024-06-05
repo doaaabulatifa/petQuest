@@ -16,7 +16,7 @@ export default function Headers() {
               className="border bg-white border-blue-600 rounded-full m-5 py-2 px-8 text-blue-600"
               href="/profile"
             >
-              Profiles
+              Contributors 
             </Link>
             <Link
               className="border bg-white border-blue-600 rounded-full m-5 py-2 px-8 text-blue-600"
