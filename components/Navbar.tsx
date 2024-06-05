@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import Header from "../components/Header"
+import Header from "../components/Header";
 import { SignedOut, SignInButton, SignedIn, UserButton } from "@clerk/nextjs";
 
 const NavBar = () => (
