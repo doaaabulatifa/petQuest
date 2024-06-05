@@ -105,7 +105,6 @@ export default function EditPost({ postId }) {
             name="image"
             type="file"
             accept="image/*"
-            required
           />
 
           <label className="py-2" htmlFor="status">
@@ -118,7 +117,7 @@ export default function EditPost({ postId }) {
           >
             <option value="available">Avaliable</option>
             <option value="processing">Processing</option>
-            <option value="adopted">Adopted</option>
+            <option value="adopted">Unavailable</option>
           </select>
 
           <button
