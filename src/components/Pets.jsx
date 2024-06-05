@@ -1,6 +1,10 @@
 export default function Pets() {
   return (
-    <select className="input border rounded-lg border-black p-2" name="species">
+    <select
+      className="input border rounded-lg border-black p-2"
+      name="species"
+      required
+    >
       <option value="Cat">Cat</option>
       <option value="Dog">Dog</option>
       <option value="Rabbit">Rabbit</option>

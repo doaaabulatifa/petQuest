@@ -20,7 +20,6 @@ export default async function RootLayout({
 
   //Clerk info for user
   const user = await currentUser();
-  console.log(user);
 
   //SELECT profile for user
   const result = await db.query(
