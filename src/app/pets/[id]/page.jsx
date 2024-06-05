@@ -4,6 +4,7 @@ import ShowComment from "@/components/ShowComment";
 import Petinfo from "@/components/Petinfo";
 import EditPost from "@/components/EditPost";
 import { auth } from "@clerk/nextjs/server";
+import { SignedIn } from "@clerk/nextjs";
 
 //metadata
 export async function generateMetadata({ params }) {
@@ -26,14 +27,13 @@ export default async function pet({ params }) {
     return <div>Pet not found</div>;
   }
 
-  //Allow current user to see EditPost on their own posts only
+  //Allow current signed in user to see EditPost on their own posts only
   const { userId } = auth();
   const myResult = await db.query(
     `SELECT * FROM users2 WHERE clerk_id = '${userId}'`
   );
-  const profileId = myResult.rows[0].id;
+  const profileId = myResult.rows[0] ? myResult.rows[0].id : null;
   const currentUser = profileId == pet.user_id ? true : false;
-  // const enquireUser = profileId == pet.user_id ? true : false;
 
   return (
     <div className="w-screen margintop flex justify-center">
@@ -42,7 +42,10 @@ export default async function pet({ params }) {
           <Petinfo pet={pet} />
         </div>
         {currentUser && <EditPost postId={pet.id} />}
-        <AddComment postId={pet.id} />
+        <SignedIn>
+          <AddComment postId={pet.id} />
+        </SignedIn>
+
         <ShowComment postId={pet.id} />
       </div>
     </div>
