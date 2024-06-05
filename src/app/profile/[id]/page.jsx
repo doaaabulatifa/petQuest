@@ -36,25 +36,27 @@ export default async function user({ params }) {
         />
         <div className="flex flex-col petinfo">
           <h3>Username: {user.username}</h3>
+          <p>Location: {user.location}</p>
           <p>Contact: {user.email}</p>
           <p>Bio: {user.bio}</p>
-          <p>Location: {user.location}</p>
         </div>
 
       </div>
       <Link
-        className=" smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
+        className="smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
         href="/newpost"
       >
         Make a new post
       </Link>
       <Link
-        className=" smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
+        className="smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
         href="/profile"
       >
         Back to profiles
       </Link>
-
+      <h2 className="smallmargintop text-xl font-medium">
+        {user.username}'s Posts:
+      </h2>
       <ShowUserPosts userId={user.id} />
     </div>
   );

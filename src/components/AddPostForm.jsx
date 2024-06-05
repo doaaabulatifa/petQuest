@@ -16,7 +16,7 @@ export default function AddPostForm() {
     const idtst = await db.query(
       `SELECT id FROM users2 WHERE clerk_id = '${userId}'`
     );
-
+    console.log(idtst);
     const profileId = idtst.rows[0].id;
 
     const name = formData.get("name");
@@ -28,8 +28,8 @@ export default function AddPostForm() {
     const image_url = formData.get("image_url");
     const status = formData.get("status");
     const created_at = new Date().toISOString();
-
     const updated_at = new Date().toISOString();
+
     await db.query(
       `INSERT INTO pets (name,species,breed,age,location,description,image_url,status, user_id,created_at,updated_at) values ('${name}', '${species}','${breed}','${age}','${location}','${description}','${image_url}','${status}', '${profileId}','${created_at}','${updated_at}')`
     );
