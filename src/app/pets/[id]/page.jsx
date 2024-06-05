@@ -45,7 +45,6 @@ export default async function pet({ params }) {
         <SignedIn>
           <AddComment postId={pet.id} />
         </SignedIn>
-
         <ShowComment postId={pet.id} />
       </div>
     </div>
