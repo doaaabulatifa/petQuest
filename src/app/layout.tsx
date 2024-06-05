@@ -27,7 +27,7 @@ export default async function RootLayout({
     `SELECT * FROM users2 WHERE clerk_id = '${userId}'`
   );
 
-  //UPDATE profile pic if user exists
+  //UPDATE profile pic if user exists //I tried ? after user but this breaks it
   if (userId && result.profile_pic == null)
     await db.query(
       `UPDATE users2 SET profile_picture = '${user.imageUrl}' WHERE clerk_id = '${userId}'`
