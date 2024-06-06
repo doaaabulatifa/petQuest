@@ -5,7 +5,7 @@ import { SignedOut, SignInButton, SignedIn, UserButton } from "@clerk/nextjs";
 
 const NavBar = () => (
   <header className="w-full fixed z-10 -top-0 -left-0">
-    <nav className=" mx-auto flex justify-between items-center sm:px-16 px-6 py-4 bg-transparent">
+    <nav className="mx-auto flex flex-col justify-between items-center sm:px-16 px-6 py-4 bg-transparent sm:flex-row">
       <Link href="/" className="flex justify-center items-center">
         <Image
           src="/logo.svg"
