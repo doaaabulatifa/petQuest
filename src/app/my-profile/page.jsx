@@ -3,7 +3,7 @@ import { db } from "@/lib/db";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";
-// import BasicSelect from "../componant/BaiscSelect";
+
 
 export default async function myProfile() {
     const { userId } = auth();
@@ -19,7 +19,7 @@ export default async function myProfile() {
     const email= formData.get("email");
     const bio= formData.get("bio");
     const location= formData.get("location");
-    // const profile_picture= formData.get("profile_picture");
+   
     await db.query(
         "UPDATE users2 SET username = $1, email = $2, bio = $3, location = $4  WHERE clerk_id = $5",
         [username, email, bio, location,userId]
@@ -30,28 +30,32 @@ export default async function myProfile() {
   }
 
   return (
-    <div>
-      <form action={editProfile}>
-        <label>Name</label>
+    <div className="margintop flex flex-col items-center">
+      <form
+      className="border paddingform flex flex-col items-center"
+       action={editProfile}>
+        <label className="py-2">Name</label>
         <input
           name="username"
           placeholder="your Name"
           defaultValue={profile.username}
         />
         <input
+        className="input border rounded-lg border-black p-2"
           name="email"
           placeholder="your email"
           defaultValue={profile.email}
          
         />
         <input
+        className="input border rounded-lg border-black p-2"
           name="location"
           placeholder="your location"
           defaultValue={profile.location}
         />
-        {/* <BasicSelect /> */}
+      
 
-        <label>bio</label>
+        <label className="py-2">bio</label>
         <textarea
           name="bio"
           placeholder="bio"
@@ -60,17 +64,11 @@ export default async function myProfile() {
         ></textarea>
       
       
-          {/* <label className="py-2" htmlFor="profile_picture">
-          Add Image
-        </label>
-        <input
-          className="input border rounded-lg border-black p-2"
-          name="profile_picture"
-          type="file"
-          accept="image/*"
-        /> */}
+       
 
-        <button>Submit Changes</button>
+        <button 
+        className="smallmargintop text-lg text-blue font-semibold px-6 py-3 leading-none text-gray-200 border border-gray-800 rounded-lg focus:outline-none focus:shadow-outline bg-gradient-to-b from-gray-900 to-black hover:from-indigo-500 hover:to-blue-700 transition duration-300 ease-in-out transform hover:scale-105 shadow-lg"
+        >Submit Changes</button>
       </form>
     </div>
   );
