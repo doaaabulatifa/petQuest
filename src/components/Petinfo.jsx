@@ -34,14 +34,14 @@ const Petinfo = ({ pet }) => {
 
     
       <button
-  className="smallmargintop bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-10 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-lg"
+ className="smallmargintop text-2xl font-bold px-6 py-3 leading-none text-gray-200 border border-gray-800 rounded-lg focus:outline-none focus:shadow-outline bg-gradient-to-b from-gray-900 to-black hover:from-indigo-500 hover:to-blue-700 transition duration-300 ease-in-out transform hover:scale-105 shadow-lg"
   onClick={handleAdoptRequest}
 >
   Adopt Request
 </button>
 
       <Link
-        className="smallmargintop bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-10 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-lg"
+       className="smallmargintop text-2xl font-bold px-6 py-3 leading-none text-gray-200 border border-gray-800 rounded-lg focus:outline-none focus:shadow-outline bg-gradient-to-b from-gray-900 to-black hover:from-indigo-500 hover:to-blue-700 transition duration-300 ease-in-out transform hover:scale-105 shadow-lg"
         href="/pets"
       >
         Back to pets
