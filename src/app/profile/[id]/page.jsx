@@ -1,24 +1,45 @@
 import { db } from "@/lib/db";
 import ShowUserPosts from "@/components/ShowUserPosts";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
-//metadata
+// Metadata
 export async function generateMetadata({ params }) {
   const userId = params.id;
-  const result = await db.query(`SELECT * FROM users2 WHERE  id = '${userId}'`);
+
+  // Validate userId
+  if (isNaN(Number(userId))) {
+    notFound();
+  }
+
+  const result = await db.query('SELECT * FROM users2 WHERE id = $1', [userId]);
   const user = result.rows[0];
+
+  if (!user) {
+    notFound();
+  }
 
   return {
     title: `petQuest | ${user.username}`,
-    description: ` ${user.bio}`,
+    description: `${user.bio}`,
   };
 }
 
-//edf
-export default async function user({ params }) {
+// Component
+export default async function User({ params }) {
   const userId = params.id;
-  const result = await db.query(`SELECT * FROM users2 WHERE id = '${userId}'`);
+
+  // Validate userId
+  if (isNaN(Number(userId))) {
+    notFound();
+  }
+
+  const result = await db.query('SELECT * FROM users2 WHERE id = $1', [userId]);
   const user = result.rows[0];
+
+  if (!user) {
+    notFound();
+  }
 
   return (
     <div className="flex items-center flex-col text-center margintop">
