@@ -11,7 +11,7 @@ export default async function Pets() {
   return (
     <div className="margintop padding-x">
       <SignedIn>
-      <h1 className="text-4xl font-extrabold text-center py-6 text-blue-800">
+      <h1 className="text-2xl font-extrabold text-center py-6 text-blue-800">
   Discover Our Pets
 </h1>
 
