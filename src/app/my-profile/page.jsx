@@ -1,17 +1,12 @@
 import { db } from "@/lib/db";
 import { revalidatePath } from "next/cache";
 import { auth } from "@clerk/nextjs/server";
-import { SignedIn, SignedOut} from "@clerk/nextjs";
-import { redirect } from "next/navigation";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 import CustomSignInButton from "../../components/CustomSignInButton";
+import { redirect } from "next/navigation";
 
 export default async function myProfile() {
   const { userId } = auth();
-  
-  if (!userId) {
-    return redirect('/'); 
-  }
-
   const result = await db.query("SELECT * FROM users2 WHERE clerk_id = $1", [
     userId,
   ]);
@@ -28,8 +23,8 @@ export default async function myProfile() {
       "UPDATE users2 SET username = $1, email = $2, bio = $3, location = $4 WHERE clerk_id = $5",
       [username, email, bio, location, userId]
     );
-    revalidatePath("/profile"); 
-    redirect("/profile"); 
+    revalidatePath("/profile");
+    redirect("/profile");
   }
 
   return (
@@ -44,21 +39,21 @@ export default async function myProfile() {
             <input
               name="username"
               placeholder="Your Name"
-              defaultValue={profile?.username || ''}
+              defaultValue={profile?.username || ""}
               className="input border rounded-lg border-black p-2"
             />
             <label className="py-2">Email</label>
             <input
               name="email"
               placeholder="Your Email"
-              defaultValue={profile?.email || ''}
+              defaultValue={profile?.email || ""}
               className="input border rounded-lg border-black p-2"
             />
             <label className="py-2">Location</label>
             <input
               name="location"
               placeholder="Your Location"
-              defaultValue={profile?.location || ''}
+              defaultValue={profile?.location || ""}
               className="input border rounded-lg border-black p-2"
             />
             <label className="py-2">Bio</label>
@@ -66,7 +61,7 @@ export default async function myProfile() {
               name="bio"
               placeholder="Bio"
               rows={5}
-              defaultValue={profile?.bio || ''}
+              defaultValue={profile?.bio || ""}
               className="textarea input border rounded-lg border-black p-2"
             ></textarea>
             <button className="smallmargintop text-lg text-blue font-semibold px-6 py-3 leading-none text-gray-200 border border-gray-800 rounded-lg focus:outline-none focus:shadow-outline bg-gradient-to-b from-gray-900 to-black hover:from-indigo-500 hover:to-blue-700 transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">
