@@ -11,7 +11,9 @@ export default async function Profiles() {
     <div className="flex flex-col items-center margintop">
       <SignedIn>
         <h1 className="text-xl font-medium">User Profiles</h1>
-        <h2 className="padding-y">Click on a profile to visit their profile!</h2>
+        <h2 className="padding-y">
+          Click on a profile to visit their profile!
+        </h2>
         <div className="flex flex-wrap justify-center padding-y">
           {profiles.map((profile, index) => (
             <div className="usercontainer padding-y" key={index}>
@@ -32,8 +34,10 @@ export default async function Profiles() {
 
       <SignedOut>
         <div className="flex flex-col justify-center items-center">
-          <p className="text-xl font-medium">Please sign in to view the profiles.</p>
-          <SignInButton />
+          <p className="text-xl font-medium">
+            Please sign in to view the profiles.
+          </p>
+          <SignInButton className="custom-signin-button" />
         </div>
       </SignedOut>
     </div>

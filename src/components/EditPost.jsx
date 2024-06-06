@@ -158,7 +158,7 @@ export default function EditPost({ postId }) {
           </select>
 
           <button
-            className="smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
+            className="smallmargintop border bg-white border-blue-600 rounded-full py-1 px-5 sm:py-3 sm:px-10 text-blue-600"
             type="submit"
           >
             Update

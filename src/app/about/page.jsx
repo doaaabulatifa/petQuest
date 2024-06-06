@@ -1,7 +1,7 @@
 export default function about() {
   return (
-    <div className="flex justify-center">
-      <div className="flex-center flex-col text-center margintop leading-loose border rounded-lg about">
+    <div className="flex justify-center margintop">
+      <div className="flex-center flex-col text-center leading-loose border rounded-lg about">
         <p className="text-xl font-medium padding-y">About PetQuest</p>
         <p>
           Welcome to PetQuest! Your ultimate companion in finding and adopting

@@ -12,7 +12,7 @@ export async function generateMetadata({ params }) {
     notFound();
   }
 
-  const result = await db.query('SELECT * FROM users2 WHERE id = $1', [userId]);
+  const result = await db.query("SELECT * FROM users2 WHERE id = $1", [userId]);
   const user = result.rows[0];
 
   if (!user) {
@@ -34,7 +34,7 @@ export default async function User({ params }) {
     notFound();
   }
 
-  const result = await db.query('SELECT * FROM users2 WHERE id = $1', [userId]);
+  const result = await db.query("SELECT * FROM users2 WHERE id = $1", [userId]);
   const user = result.rows[0];
 
   if (!user) {
@@ -59,7 +59,7 @@ export default async function User({ params }) {
       </div>
 
       <Link
-        className="smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
+        className="smallmargintop border bg-white border-blue-600 rounded-full py-1 px-5 sm:py-3 sm:px-10 text-blue-600"
         href="/profile"
       >
         Back to profiles

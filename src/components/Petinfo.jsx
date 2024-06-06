@@ -33,13 +33,13 @@ const Petinfo = ({ pet }) => {
       </div>
 
       <button
-        className="smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
+        className="smallmargintop border bg-white border-blue-600 rounded-full py-1 px-5 sm:py-3 sm:px-10 text-blue-600"
         onClick={handleAdoptRequest}
       >
         Adopt Request
       </button>
       <Link
-        className="smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
+        className="smallmargintop border bg-white border-blue-600 rounded-full py-1 px-5 sm:py-3 sm:px-10 text-blue-600"
         href="/pets"
       >
         Back to pets

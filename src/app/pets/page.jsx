@@ -15,7 +15,7 @@ export default async function Pets() {
         </h1>
         <div className="flex justify-center">
           <Link
-            className="border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
+            className="border bg-white border-blue-600 rounded-full py-1 px-5 sm:py-3 sm:px-10 text-blue-600"
             href="/newpost"
           >
             Make a new post
@@ -45,8 +45,10 @@ export default async function Pets() {
 
       <SignedOut>
         <div className="flex flex-col justify-center items-center">
-          <p className="text-xl font-medium">Please sign in to view the pets.</p>
-          <SignInButton className="custom-signin-button"  />
+          <p className="text-xl font-medium">
+            Please sign in to view the pets.
+          </p>
+          <SignInButton className="custom-signin-button" />
         </div>
       </SignedOut>
     </div>

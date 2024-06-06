@@ -19,8 +19,7 @@ export default async function AddComment({ postId }) {
       `INSERT INTO comments (content, user_id,pet_id,created_at) values ('${content}', '${profileId}', '${postId}','${createdAt}')`
     );
 
-    revalidatePath("/pets");
-    redirect("/pets");
+    revalidatePath("/");
   }
 
   return (
@@ -33,13 +32,13 @@ export default async function AddComment({ postId }) {
         Post a comment
       </label>
       <textarea
-        className="smallmargintop textareamobile sm:textarea"
+        className="smallmargintop textarea"
         name="content"
         id="content"
         placeholder="comment"
       />
       <button
-        className=" smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
+        className="smallmargintop border bg-white border-blue-600 rounded-full py-1 px-5 sm:py-3 sm:px-10 text-blue-600"
         type="submit"
       >
         Add comment
