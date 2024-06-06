@@ -22,7 +22,7 @@ export default async function myProfile() {
     // const profile_picture= formData.get("profile_picture");
     await db.query(
         "UPDATE users2 SET username = $1, email = $2, bio = $3, location = $4  WHERE clerk_id = $5",
-        [username, email, bio, location]
+        [username, email, bio, location,userId]
       );
     revalidatePath("/");
   
