@@ -1,3 +1,4 @@
+import { SignedIn } from "@clerk/nextjs";
 import Link from "next/link";
 
 export default function Headers() {
@@ -5,13 +6,21 @@ export default function Headers() {
     <>
       {/* <header> */}
       {/* <nav> */}
-      <ul className="my-4">
+      <ul className="flex justify-center items-center flex-wrap my-4">
         <Link
           className="border bg-white border-blue-600 rounded-full  text-blue-600 m-1 py-1 px-2 sm:m-5 sm:py-2 sm:px-8"
           href="/"
         >
           Home
         </Link>
+        <SignedIn>
+          <Link
+            className="border bg-white border-blue-600 rounded-full text-blue-600 m-1 py-1 px-2  sm:m-5 sm:py-2 sm:px-8"
+            href="/my-profile"
+          >
+            My Profile
+          </Link>
+        </SignedIn>
         <Link
           className="border bg-white border-blue-600 rounded-full text-blue-600 m-1 py-1 px-2 sm:m-5 sm:py-2 sm:px-8"
           href="/profile"
@@ -29,12 +38,6 @@ export default function Headers() {
           href="/about"
         >
           About
-        </Link>
-        <Link
-          className="border bg-white border-blue-600 rounded-full text-blue-600 m-1 py-1 px-2  sm:m-5 sm:py-2 sm:px-8"
-          href="/my-profile"
-        >
-          My Profile
         </Link>
       </ul>
       {/* </nav> */}
