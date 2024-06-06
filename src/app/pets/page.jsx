@@ -46,7 +46,7 @@ export default async function Pets() {
       <SignedOut>
         <div className="flex flex-col justify-center items-center">
           <p className="text-xl font-medium">Please sign in to view the pets.</p>
-          <SignInButton />
+          <SignInButton className="custom-signin-button"  />
         </div>
       </SignedOut>
     </div>
