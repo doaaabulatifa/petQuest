@@ -13,8 +13,12 @@ const Petinfo = ({ pet }) => {
   return (
     <div className="flex flex-col items-center">
       <h1 className="text-xl font-medium padding-y">Meet {pet.name}</h1>
-      <div className="flex border padding-x padding-y">
-        <img src={pet.image_url} alt={pet.breed} className="petimage" />
+      <div className="flex flex-col items-center sm:flex-row border padding-x padding-y">
+        <img
+          src={pet.image_url}
+          alt={pet.breed}
+          className="petimage3 sm:petimage"
+        />
         <div className="flex flex-col petinfo">
           <h3>Name: {pet.name}</h3>
           <p>Age: {pet.age} years</p>
@@ -29,13 +33,13 @@ const Petinfo = ({ pet }) => {
       </div>
 
       <button
-        className=" smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
+        className="smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
         onClick={handleAdoptRequest}
       >
         Adopt Request
       </button>
       <Link
-        className=" smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
+        className="smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
         href="/pets"
       >
         Back to pets

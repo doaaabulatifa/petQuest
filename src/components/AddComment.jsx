@@ -33,7 +33,7 @@ export default async function AddComment({ postId }) {
         Post a comment
       </label>
       <textarea
-        className="smallmargintop textarea"
+        className="smallmargintop textareamobile sm:textarea"
         name="content"
         id="content"
         placeholder="comment"
