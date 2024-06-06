@@ -11,9 +11,10 @@ export default async function Pets() {
   return (
     <div className="margintop padding-x">
       <SignedIn>
-        <h1 className="flex justify-center padding-y text-xl font-medium">
-          All Pets
-        </h1>
+      <h1 className="text-4xl font-extrabold text-center py-6 text-blue-800">
+  Discover Our Pets
+</h1>
+
         <div className="flex justify-center">
           <Link
             className="border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"

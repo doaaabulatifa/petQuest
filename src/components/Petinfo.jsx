@@ -32,14 +32,16 @@ const Petinfo = ({ pet }) => {
         </div>
       </div>
 
+    
       <button
-        className="smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
-        onClick={handleAdoptRequest}
-      >
-        Adopt Request
-      </button>
+  className="smallmargintop bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-10 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-lg"
+  onClick={handleAdoptRequest}
+>
+  Adopt Request
+</button>
+
       <Link
-        className="smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
+        className="smallmargintop bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-10 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-lg"
         href="/pets"
       >
         Back to pets
