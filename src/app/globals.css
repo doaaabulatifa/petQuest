@@ -14,7 +14,7 @@
 }
 
 .textarea {
-  @apply border rounded-lg resize-none p-2 h-40 w-96;
+  @apply border rounded-lg resize-none p-2 h-40 w-64 sm:w-96;
 }
 
 .textareamobile {
@@ -22,7 +22,7 @@
 }
 
 .input {
-  @apply w-96;
+  @apply w-64 sm:w-96;
 }
 
 .input2 {
@@ -38,11 +38,11 @@
 }
 
 .margintop {
-  @apply my-32;
+  @apply my-12 sm:my-32;
 }
 
 .about {
-  @apply max-w-screen-lg p-16;
+  @apply w-4/5 sm:w-1/2 p-16;
 }
 
 .petimage {
