@@ -1,8 +1,9 @@
 import { db } from "@/lib/db";
 import { revalidatePath } from "next/cache";
 import { auth } from "@clerk/nextjs/server";
-import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut} from "@clerk/nextjs";
 import { redirect } from "next/navigation";
+import CustomSignInButton from "../../components/CustomSignInButton";
 
 export default async function myProfile() {
   const { userId } = auth();
@@ -77,7 +78,7 @@ export default async function myProfile() {
       <SignedOut>
         <div className="margintop flex flex-col items-center">
           <p className="text-lg">Please sign in to edit your profile.</p>
-          <SignInButton />
+          <CustomSignInButton />
         </div>
       </SignedOut>
     </>
