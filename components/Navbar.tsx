@@ -17,7 +17,9 @@ const NavBar = () => (
       </Link>
       <Header />
       <SignedOut>
-        <SignInButton className="border bg-white border-blue-600 rounded-full py-1 px-5 my-2 sm:py-3 sm:px-10 text-blue-600" />
+        <div className="border bg-white border-blue-600 rounded-full py-1 px-5 my-2 sm:py-3 sm:px-10 text-blue-600">
+          <SignInButton />
+        </div>
       </SignedOut>
       <SignedIn>
         <UserButton />

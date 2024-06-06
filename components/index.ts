@@ -1,6 +1,6 @@
 import PetCard from "./PetCard";
 import CustomButton from "./CustomButton";
-import CustomFilter from "./CustomFilter";
+// import CustomFilter from "./CustomFilter";
 import Footer from "./Footer";
 import NavBar from "./Navbar";
 import ShowMore from "./ShowMore";
@@ -11,7 +11,7 @@ export {
   Hero,
   PetCard,
   CustomButton,
-  CustomFilter,
+  // CustomFilter,
   Footer,
   NavBar,
   ShowMore,

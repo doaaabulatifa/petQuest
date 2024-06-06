@@ -27,9 +27,9 @@ export default async function RootLayout({
   );
 
   //UPDATE profile pic if user exists
-  if (userId && result.profile_pic == null)
+  if (userId && result.rows[0].profile_picture == null)
     await db.query(
-      `UPDATE users2 SET profile_picture = '${user.imageUrl}' WHERE clerk_id = '${userId}'`
+      `UPDATE users2 SET profile_picture = '${user?.imageUrl}' WHERE clerk_id = '${userId}'`
     );
 
   //INSERT new user if user doesn't exist
