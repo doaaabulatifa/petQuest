@@ -52,8 +52,8 @@ export interface CustomButtonProps {
 export interface OptionProps {
   species: string;
   location: string;
-  title:string;
   value:string;
+  title:string;
 }
 
 export interface CustomFilterProps {

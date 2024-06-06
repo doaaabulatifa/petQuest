@@ -6,6 +6,7 @@ import EditPost from "@/components/EditPost";
 import { auth } from "@clerk/nextjs/server";
 import { SignedIn } from "@clerk/nextjs";
 
+
 //metadata
 export async function generateMetadata({ params }) {
   const petId = params.id;

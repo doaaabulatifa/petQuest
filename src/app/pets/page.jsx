@@ -1,5 +1,5 @@
 import { db } from "@/lib/db";
-import { SignedIn } from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import Link from "next/link";
 
 export default async function Pets() {
@@ -9,39 +9,46 @@ export default async function Pets() {
 
   return (
     <div className="margintop padding-x">
-      <h1 className="flex justify-center padding-y text-xl font-medium">
-        All Pets
-      </h1>
-      <div className="flex justify-center">
-        <SignedIn>
+      <SignedIn>
+        <h1 className="flex justify-center padding-y text-xl font-medium">
+          All Pets
+        </h1>
+        <div className="flex justify-center">
           <Link
             className="border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
             href="/newpost"
           >
             Make a new post
           </Link>
-        </SignedIn>
-      </div>
+        </div>
 
-      <div className="smallmargintop flex flex-wrap petinfo padding-y">
-        {pets.map((pet, index) => (
-          <div className="padding-x padding-y" key={index}>
-            <Link href={`/pets/${pet.id}`} key={pet.id}>
-              <div className="flex flex-col justify-between items-center border rounded-lg petimage2">
-                <img
-                  src={pet.image_url}
-                  alt={pet.breed}
-                  className=" petcardimage"
-                />
+        <div className="smallmargintop flex flex-wrap petinfo padding-y">
+          {pets.map((pet, index) => (
+            <div className="padding-x padding-y" key={index}>
+              <Link href={`/pets/${pet.id}`} key={pet.id}>
+                <div className="flex flex-col justify-between items-center border rounded-lg petimage2">
+                  <img
+                    src={pet.image_url}
+                    alt={pet.breed}
+                    className="petcardimage"
+                  />
 
-                <h3 className="padding-y">
-                  {pet.name} | {pet.age} years
-                </h3>
-              </div>
-            </Link>
-          </div>
-        ))}
-      </div>
+                  <h3 className="padding-y">
+                    {pet.name} | {pet.age} years
+                  </h3>
+                </div>
+              </Link>
+            </div>
+          ))}
+        </div>
+      </SignedIn>
+
+      <SignedOut>
+        <div className="flex flex-col justify-center items-center">
+          <p className="text-xl font-medium">Please sign in to view the pets.</p>
+          <SignInButton />
+        </div>
+      </SignedOut>
     </div>
   );
 }
