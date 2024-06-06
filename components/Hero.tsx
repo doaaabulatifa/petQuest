@@ -15,8 +15,8 @@ const Hero = () => {
 
   return (
     <div className="hero overflow-hidden">
-      <div className="flex-1 pt-36 padding-x">
-        <h1 className="hero__title mt-60 text-9xl font-black">
+      <div className="flex-1 sm:pt-36 padding-x">
+        <h1 className="hero__title sm:mt-60 text-9xl font-black">
           Don't buy, ADOPT!
         </h1>
 
