@@ -1,4 +1,3 @@
-// src/app/api/adopt/route.js
 import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs/server";
 

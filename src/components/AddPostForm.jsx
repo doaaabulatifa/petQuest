@@ -36,9 +36,9 @@ export default function AddPostForm() {
       `INSERT INTO pets (name,species,breed,age,location,description,image_url,status, user_id,created_at,updated_at) values ('${name}', '${species}','${breed}','${age}','${location}','${description}','${imageUrlToInsert}','${status}', '${profileId}','${created_at}','${updated_at}')`
     );
 
-    revalidatePath("/");
+    revalidatePath("/pets");
 
-    redirect("/");
+    redirect("/pets");
   }
   return (
     <div className="margintop flex flex-col items-center">
