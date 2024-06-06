@@ -1,6 +1,7 @@
 import { db } from "@/lib/db";
 import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import Link from "next/link";
+import CustomSignInButton from "../../components/CustomSignInButton";
 
 export default async function Profiles() {
   "use server";
@@ -33,7 +34,7 @@ export default async function Profiles() {
       <SignedOut>
         <div className="flex flex-col justify-center items-center">
           <p className="text-xl font-medium">Please sign in to view the profiles.</p>
-          <SignInButton />
+         <CustomSignInButton />
         </div>
       </SignedOut>
     </div>
