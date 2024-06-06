@@ -28,7 +28,7 @@ export default async function myProfile() {
       [username, email, bio, location, userId]
     );
     revalidatePath("/profile"); 
-    redirect(`/profile/${userId}`); // Redirect to the user's profile page
+    redirect("/profile"); 
   }
 
   return (
