@@ -1,10 +1,9 @@
-
 import { SignInButton } from "@clerk/nextjs";
 
 const CustomSignInButton = () => {
   return (
     <SignInButton>
-      <button className="border bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white font-semibold rounded-full py-3 px-20 shadow-lg transform transition duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50">
+      <button className="text-2xl font-bold px-6 py-3 leading-none text-gray-200 border border-gray-800 rounded-lg focus:outline-none focus:shadow-outline bg-gradient-to-b from-gray-900 to-black hover:from-indigo-500 transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">
         <span className="relative z-10">Sign In</span>
       </button>
     </SignInButton>
@@ -12,4 +11,3 @@ const CustomSignInButton = () => {
 };
 
 export default CustomSignInButton;
-
