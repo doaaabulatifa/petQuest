@@ -19,10 +19,10 @@ export default async function myProfile() {
     const email= formData.get("email");
     const bio= formData.get("bio");
     const location= formData.get("location");
-    const profile_picture= formData.get("profile_picture");
+    // const profile_picture= formData.get("profile_picture");
     await db.query(
-        "UPDATE users2 SET username = $1, email = $2, bio = $3, location = $4, profile_picture = $5 WHERE clerk_id = $5",
-        [username, email, bio, location,profile_picture]
+        "UPDATE users2 SET username = $1, email = $2, bio = $3, location = $4  WHERE clerk_id = $5",
+        [username, email, bio, location]
       );
     revalidatePath("/");
   
@@ -60,7 +60,7 @@ export default async function myProfile() {
         ></textarea>
       
       
-          <label className="py-2" htmlFor="profile_picture">
+          {/* <label className="py-2" htmlFor="profile_picture">
           Add Image
         </label>
         <input
@@ -68,7 +68,7 @@ export default async function myProfile() {
           name="profile_picture"
           type="file"
           accept="image/*"
-        />
+        /> */}
 
         <button>Submit Changes</button>
       </form>
