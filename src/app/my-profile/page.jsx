@@ -27,7 +27,7 @@ export default async function myProfile() {
       "UPDATE users2 SET username = $1, email = $2, bio = $3, location = $4 WHERE clerk_id = $5",
       [username, email, bio, location, userId]
     );
-    revalidatePath(`/profile/${userId}`); // Correct path to revalidate
+    revalidatePath("/profile"); 
     redirect(`/profile/${userId}`); // Redirect to the user's profile page
   }
 
