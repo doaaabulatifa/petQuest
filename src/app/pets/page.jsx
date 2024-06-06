@@ -1,6 +1,7 @@
 import { db } from "@/lib/db";
-import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 import Link from "next/link";
+import CustomSignInButton from "@/components/CustomSignInButton";
 
 export default async function Pets() {
   "use server";
@@ -46,7 +47,7 @@ export default async function Pets() {
       <SignedOut>
         <div className="flex flex-col justify-center items-center">
           <p className="text-xl font-medium">Please sign in to view the pets.</p>
-          <SignInButton className="custom-signin-button"  />
+          <CustomSignInButton />
         </div>
       </SignedOut>
     </div>

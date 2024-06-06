@@ -282,19 +282,5 @@
 .search-breed__option {
   @apply cursor-default select-none py-2 pl-10 pr-4;
 }
-.custom-signin-button {
-  border: 1px solid #3182ce;
-  background-color: #63b3ed;
-  color: #fff;
-  border-radius: 9999px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.custom-signin-button:hover {
-  background-color: #3182ce;
-}
 
 /* END: search manufacturer styles */
