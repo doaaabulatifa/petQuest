@@ -25,7 +25,7 @@ const SearchBreed = ({ breed, setBreed }: SearchBreedProps) => {
           {/* Button for the combobox. Click on the icon to see the complete dropdown */}
           <Combobox.Button className='absolute top-[14px] left-[4px]'>
             <Image
-              src='/paws.svg'
+              src='/paws.png'
               width={20}
               height={20}
               className='ml-4'

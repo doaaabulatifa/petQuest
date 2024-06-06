@@ -6,16 +6,15 @@ import {
   PetCard,
   ShowMore,
   SearchBar,
-  // CustomFilter,
+  CustomFilter,
   Hero,
 } from "../../components";
 
 export default async function Home({ searchParams }: HomeProps) {
   const allPets = await fetchPets({
     breed: searchParams.breed || "",
-    colour: searchParams.colour || "",
+    species: searchParams.species || "",
     age: searchParams.age || "",
-    sex: searchParams.sex || "",
     limit: searchParams.limit || 10,
     location: searchParams.location || "",
     offset: searchParams.offset || 0,
@@ -36,10 +35,10 @@ export default async function Home({ searchParams }: HomeProps) {
         <div className="home__filters">
           <SearchBar />
 
-          {/* <div className="home__filter-container">
+          <div className="home__filter-container">
             <CustomFilter title="species" options={petSpecies} />
             <CustomFilter title="age" options={petAges} />
-          </div> */}
+          </div>
         </div>
 
         {!isDataEmpty ? (

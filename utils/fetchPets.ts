@@ -1,6 +1,7 @@
 // utils/fetchPets.ts
 import pool from './db';
 import { FilterProps } from '../types';
+import { petSpecies } from '../constants';
 
 export async function fetchPets(filters: FilterProps) {
   const { breed, colour, age, sex, location, limit = 10, offset = 0 } = filters;

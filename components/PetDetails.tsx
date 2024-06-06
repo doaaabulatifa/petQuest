@@ -1,14 +1,13 @@
 import { Fragment } from "react";
 import Image from "next/image";
-
 import { Dialog, Transition } from "@headlessui/react";
-import { PetProps } from "../types";
+import { PetMoreProps } from "../types";
 import { generatePetImageUrl } from "../utils";
 
 interface PetDetailsProps {
   isOpen: boolean;
   closeModal: () => void;
-  pet: PetProps;
+  pet: PetMoreProps;
 }
 
 const PetDetails = ({ isOpen, closeModal, pet }: PetDetailsProps) => (
@@ -16,7 +15,7 @@ const PetDetails = ({ isOpen, closeModal, pet }: PetDetailsProps) => (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as='div' className='relative z-10' onClose={closeModal}>
         <Transition.Child
-          as={Fragment}
+          as={Fragment} 
           enter='ease-out duration-300'
           enterFrom='opacity-0'
           enterTo='opacity-100'
@@ -55,18 +54,18 @@ const PetDetails = ({ isOpen, closeModal, pet }: PetDetailsProps) => (
 
                 <div className='flex-1 flex flex-col gap-3'>
                   <div className='relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg'>
-                    <Image src={generatePetImageUrl(pet)} alt='pet' fill priority className='object-contain' />
+                    <Image src={pet.image_url} alt='pet' fill priority className='object-contain' />
                   </div>
 
                   <div className='flex gap-3'>
                     <div className='flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg'>
-                      <Image src={generatePetImageUrl(pet, "29")} alt='pet' fill priority className='object-contain' />
+                      <Image src={pet.image_url} alt='pet' fill priority className='object-contain' />
                     </div>
                     <div className='flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg'>
-                      <Image src={generatePetImageUrl(pet, "33")} alt='pet' fill priority className='object-contain' />
+                      <Image src={pet.image_url} alt='pet' fill priority className='object-contain' />
                     </div>
                     <div className='flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg'>
-                      <Image src={generatePetImageUrl(pet, "13")} alt='pet' fill priority className='object-contain' />
+                      <Image src={pet.image_url} alt='pet' fill priority className='object-contain' />
                     </div>
                   </div>
                 </div>
@@ -77,17 +76,29 @@ const PetDetails = ({ isOpen, closeModal, pet }: PetDetailsProps) => (
                   </h2>
 
                   <div className='mt-3 flex flex-wrap gap-4'>
-                    {Object.entries(pet).map(([key, value]) => (
-                      <div className='flex justify-between gap-5 w-full text-right' key={key} >
-                        <h4 className='text-grey capitalize'>
-                          {key.split("_").join(" ")}
-                        </h4>
-                        <p className='text-black-100 font-semibold'>
-                          {value}
-                        </p>
-                      </div>
-                    ))}
+                    {Object.entries(pet).map(([key, value]) => {
+                      // Define an array of property keys to include
+                      const includedKeys = ['name', 'age', 'breed', 'location', 'description'];
+
+                      // Check if the current key is included in the array of includedKeys
+                      if (includedKeys.includes(key)) {
+                    return (
+                  <div className='flex justify-between gap-5 w-full text-right' key={key}>
+                    <h4 className='text-grey capitalize'>
+                      {key.split("_").join(" ")}
+                    </h4>
+                    <p className='text-black-100 font-semibold'>
+                      {value instanceof Date ? value.toLocaleDateString() : value}
+                    </p>
                   </div>
+                  );
+                    } else {
+                  // Return null if the key is not included
+                  return null;
+                      }
+                    })}
+                  </div>
+
                 </div>
               </Dialog.Panel>
             </Transition.Child>

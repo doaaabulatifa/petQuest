@@ -12,7 +12,7 @@ interface PetCardProps {
 }
 
 const PetCard = ({ pet }: PetCardProps) => {
-  const { name, breed, age, location, size, colour, sex, image_url, description, status, created_at, updated_at, species, user_id } = pet;
+  const { name, breed, age, location, size, colour, sex, image_url, description, status, species, user_id } = pet;
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -51,7 +51,7 @@ const PetCard = ({ pet }: PetCardProps) => {
           </div> */}
           <div className='flex flex-col justify-center items-center gap-2'>
             <p className='text-[14px] leading-[17px]'>
-              Size: {size}
+              Species: {species}
             </p>
             <p className='text-[14px] leading-[17px]'>
               Sex: {sex}

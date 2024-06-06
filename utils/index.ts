@@ -1,4 +1,4 @@
-import { PetProps, FilterProps } from "../types";
+import { PetMoreProps, FilterProps } from "../types";
 
 // Utility function to update search parameters in the URL
 export const updateSearchParams = (type: string, value: string) => {
@@ -30,7 +30,7 @@ export const deleteSearchParams = (type: string) => {
 
 // Function to fetch pets based on filters
 export async function fetchPets(filters: FilterProps) {
-  const { breed, colour, age, sex, location } = filters;
+  const { breed, age, species } = filters;
 
   // Set the required headers for the API request
   const headers: HeadersInit = {
@@ -40,7 +40,7 @@ export async function fetchPets(filters: FilterProps) {
 
   // Construct the API URL with the given filters
   const response = await fetch(
-    `https://pets-by-api-ninjas.p.rapidapi.com/v1/pets?breed=${breed}&colour=${colour}&age=${age}&sex=${sex}&location=${location}`,
+    `https://pets-by-api-ninjas.p.rapidapi.com/v1/pets?breed=${breed}$age=${age}&location=${location}&species=${species}`,
     {
       headers: headers,
     }
@@ -53,15 +53,15 @@ export async function fetchPets(filters: FilterProps) {
 }
 
 // Function to generate a URL for pet images
-export const generatePetImageUrl = (pet: PetProps, angle?: string) => {
+export const generatePetImageUrl = (pet: PetMoreProps, angle?: string) => {
   const url = new URL("https://cdn.imagin.studio/getimage");
-  const { breed, sex, age, location } = pet;
+  const { breed, species, age, location } = pet;
 
   url.searchParams.append('customer', process.env.NEXT_PUBLIC_IMAGIN_API_KEY || '');
   url.searchParams.append('breed', breed);
 
-  if (sex) {
-    url.searchParams.append('sex', sex.split(" ")[0]);
+  if (species) {
+    url.searchParams.append('species', species.split(" ")[0]);
   }
 
   url.searchParams.append('zoomType', 'fullscreen');

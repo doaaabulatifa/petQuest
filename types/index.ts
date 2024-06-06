@@ -13,19 +13,28 @@ export interface PetProps {
   description: string;
   image_url: string;
   status: string;
-  created_at: string;
-  updated_at: string;
+  // created_at: string;
+  // updated_at: string;
+}
+
+export interface PetMoreProps {
+  name: string;
+  species: string;
+  breed: string;
+  age: number;
+  location: string;
+  description: string;
+  status: string;
+  image_url: string;
 }
 
 export interface FilterProps {
-  breed?: string;
   species?: string;
-  colour?: string;
   age?: string;
-  sex?: string;
   location?: string;
   limit?: number;
   offset?: number;
+  breed?: string;
 }
 
 export interface HomeProps {
@@ -50,16 +59,14 @@ export interface CustomButtonProps {
 }
 
 export interface OptionProps {
-  species: string;
-  location: string;
   value: string;
   title: string;
 }
 
-// export interface CustomFilterProps {
-//   title: string;
-//   options: OptionProps[];
-// }
+export interface CustomFilterProps {
+  title: string;
+  options: OptionProps[];
+}
 
 export interface ShowMoreProps {
   pageNumber: number;
