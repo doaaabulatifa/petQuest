@@ -8,7 +8,7 @@ const NavBar = () => (
     <nav className="mx-auto flex flex-col justify-between items-center sm:px-16 px-6 py-4 bg-transparent sm:flex-row">
       <Link href="/" className="flex justify-center items-center">
         <Image
-          src="/logo.svg"
+          src="/petquestlogo.png"
           alt="logo"
           width={118}
           height={18}
