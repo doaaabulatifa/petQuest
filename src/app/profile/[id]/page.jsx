@@ -12,7 +12,7 @@ export async function generateMetadata({ params }) {
     notFound();
   }
 
-  const result = await db.query('SELECT * FROM users2 WHERE id = $1', [userId]);
+  const result = await db.query("SELECT * FROM users2 WHERE id = $1", [userId]);
   const user = result.rows[0];
 
   if (!user) {
@@ -34,7 +34,7 @@ export default async function User({ params }) {
     notFound();
   }
 
-  const result = await db.query('SELECT * FROM users2 WHERE id = $1', [userId]);
+  const result = await db.query("SELECT * FROM users2 WHERE id = $1", [userId]);
   const user = result.rows[0];
 
   if (!user) {
@@ -44,7 +44,7 @@ export default async function User({ params }) {
   return (
     <div className="flex items-center flex-col text-center margintop">
       <h1 className="text-xl font-medium ">{user.username}'s Profile</h1>
-      <div className="smallmargintop items-center flex flex-col sm:flex-row sm:padding-x padding-y border">
+      <div className="smallmargintop items-center flex flex-col sm:flex-row padding-x padding-y border">
         <img
           src={user.profile_picture}
           alt={user.username}
@@ -59,7 +59,7 @@ export default async function User({ params }) {
       </div>
 
       <Link
-       className="smallmargintop text-lg text-blue font-semibold px-6 py-3 leading-none text-gray-200 border border-gray-800 rounded-lg focus:outline-none focus:shadow-outline bg-gradient-to-b from-gray-900 to-black hover:from-indigo-500 hover:to-blue-700 transition duration-300 ease-in-out transform hover:scale-105 shadow-lg"
+        className="smallmargintop text-lg text-blue font-semibold px-6 py-3 leading-none text-gray-200 border border-gray-800 rounded-lg focus:outline-none focus:shadow-outline bg-gradient-to-b from-gray-900 to-black hover:from-indigo-500 hover:to-blue-700 transition duration-300 ease-in-out transform hover:scale-105 shadow-lg"
         href="/profile"
       >
         Back to profiles
