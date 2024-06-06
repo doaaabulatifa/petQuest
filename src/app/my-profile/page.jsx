@@ -22,7 +22,7 @@ export default async function myProfile() {
       [username, email, bio, location, userId]
     );
     revalidatePath("/");
-    redirect("/profile");
+    redirect("/");
   }
 
   return (
