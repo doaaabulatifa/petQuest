@@ -36,9 +36,9 @@ export default async function pet({ params }) {
   const currentUser = profileId == pet.user_id ? true : false;
 
   return (
-    <div className="w-screen margintop flex justify-center">
+    <div className="w-screen margintop flex flex-col items-center">
       <div className="flex flex-col items-center">
-        <div className="flex padding-x padding-y">
+        <div className="flex sm:padding-x padding-y">
           <Petinfo pet={pet} />
         </div>
         {currentUser && <EditPost postId={pet.id} />}

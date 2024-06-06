@@ -21,18 +21,13 @@ export default async function user({ params }) {
   const user = result.rows[0];
 
   return (
-
-   
-      
-        
-
     <div className="flex items-center flex-col text-center margintop">
       <h1 className="text-xl font-medium ">{user.username}'s Profile</h1>
-      <div className="smallmargintop flex padding-x padding-y border">
+      <div className="smallmargintop items-center flex flex-col sm:flex-row sm:padding-x padding-y border">
         <img
           src={user.profile_picture}
           alt={user.username}
-          className="userimage rounded-lg"
+          className="userimage sm:rounded-lg"
         />
         <div className="flex flex-col petinfo">
           <h3>Username: {user.username}</h3>
@@ -40,9 +35,8 @@ export default async function user({ params }) {
           <p>Contact: {user.email}</p>
           <p>Bio: {user.bio}</p>
         </div>
-
       </div>
-    
+
       <Link
         className="smallmargintop border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600"
         href="/profile"

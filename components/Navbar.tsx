@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import { SignedOut, SignInButton, SignedIn, UserButton } from "@clerk/nextjs";
 
 const NavBar = () => (
-  <header className="w-full fixed z-10 -top-0 -left-0">
+  <header className="w-full sm:fixed z-10 -top-0 -left-0">
     <nav className="mx-auto flex flex-col justify-between items-center sm:px-16 px-6 py-4 bg-transparent sm:flex-row">
       <Link href="/" className="flex justify-center items-center">
         <Image
@@ -17,7 +17,7 @@ const NavBar = () => (
       </Link>
       <Header />
       <SignedOut>
-        <SignInButton className="border bg-white border-blue-600 rounded-full py-3 px-10 text-blue-600" />
+        <SignInButton className="border bg-white border-blue-600 rounded-full py-1 px-5 my-2 sm:py-3 sm:px-10 text-blue-600" />
       </SignedOut>
       <SignedIn>
         <UserButton />
