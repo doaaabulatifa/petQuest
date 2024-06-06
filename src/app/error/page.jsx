@@ -21,7 +21,7 @@ export default function ErrorPage() {
     <div className="margintop padding-x">
       <h1 className="flex justify-center">Error</h1>
       <p>{error}</p>
-      <button onClick={() => router.back()} className="m-4 w-1/12 border-2 border-black p-1">Go Back</button>
+      <button onClick={() => router.back()} className="smallmargintop text-lg text-blue font-semibold px-6 py-3 leading-none text-gray-200 border border-gray-800 rounded-lg focus:outline-none focus:shadow-outline bg-gradient-to-b from-gray-900 to-black hover:from-indigo-500 hover:to-blue-700 transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">Go Back</button>
     </div>
   );
 }
