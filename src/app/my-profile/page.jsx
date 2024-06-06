@@ -8,7 +8,7 @@ export default async function myProfile() {
   const { userId } = auth();
   
   if (!userId) {
-    return redirect('/sign-in'); // Redirect to sign-in page if user is not authenticated
+    return redirect('/'); 
   }
 
   const result = await db.query("SELECT * FROM users2 WHERE clerk_id = $1", [
