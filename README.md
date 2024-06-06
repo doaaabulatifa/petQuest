@@ -1,4 +1,4 @@
-# 🐾 https://petquest.vercel.app 🐾
+# 🐾 https://pet-quest.vercel.app 🐾
 
 ## petQuest
 
@@ -12,13 +12,19 @@ The project is built using Next.js with the /app router and Tailwind CSS, and us
 
 ## Features
 
-- View a list of posts
-- View a single post
-- Create a post
-- Comment on posts
-- View a user’s profile
 - Create a profile
-- User authentication
+- View a list of profiles
+- View and edit your profile
+- View other user's profiles
+- View a list of pet posts
+- View a single pet post
+- Search by breed/location on homepage
+- Create a new pet post
+- Edit your pet posts
+- Comment on pet posts
+- Submit an enquiry form
+- Mobile responsive
+- Navigate with keyboard
 
 ---
 
@@ -32,16 +38,19 @@ The project is built using Next.js with the /app router and Tailwind CSS, and us
 6. Go to supabase.com, and in your account go to connect, then connection string, url, and copy and paste this URL and paste it in your ".env.local" file in DATABASE_URL:
 7. Swap [password] for your Supabase database password (to reset this, go to settings, then database, then reset database password)
 8. In Supabase, open the query editor and paste the contents of seed.sql
-9. Set up clerk project and follow the steps to connect it to your project
-10. Run npm run dev to start the development server
-11. Open http://localhost:3000 with your browser to see the site
-12. On http://Vercel.com , click new project, then link your github repo, and paste the environmental keys before pressing deploy
+9. Set up clerk project and follow the steps to connect it to your project. Follow the instructions here: https://clerk.com/docs/quickstarts/nextjs
+10. Install react-toastify by running 'npm install --save react-toastify' in the terminal. Read more here: https://www.npmjs.com/package/react-toastify
+11. Run npm run dev to start the development server
+12. Open http://localhost:3000 with your browser to see the site
+13. On http://Vercel.com , click new project, then link your github repo, and paste the environmental keys before pressing deploy
 
 ## Potential future features
 
 ---
 
-- Feature 1
-- Feature 2
-- Feature 3
-- Feature 4
+- Enquiry form is sent to user
+- Responsive on all screen sizes
+- Upload image for pet post
+- Searchbar on pets page
+- Loading icon for data loading on page
+- Like and save posts
