@@ -1,50 +1,53 @@
-import { db } from "@/lib/db";
-import { auth } from "@clerk/nextjs/server";
-import { revalidatePath } from "next/cache";
+"use client";
+import { useState, useRef } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Pets from "@/components/Pets";
 import Breeds from "@/components/Breeds";
 import Cities from "@/components/Cities";
-import Link from "next/link";
+import { handleEditPost } from "@/lib/action";
 
 export default function EditPost({ postId }) {
-  const { userId } = auth();
+  const formRef = useRef(null);
 
-  async function handleEditPost(formData) {
-    "use server";
+  const [formState, setFormState] = useState({
+    name: "",
+    species: "",
+    breed: "",
+    age: "",
+    location: "",
+    description: "",
+    image_url: "",
+    status: "available",
+  });
 
-    const idtst = await db.query(
-      `SELECT id FROM users2 WHERE clerk_id = '${userId}'`
-    );
-    console.log(idtst);
-    const profileId = idtst.rows[0].id;
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    await handleEditPost(postId, formData);
 
-    const name = formData.get("name");
-    const species = formData.get("species");
-    const breed = formData.get("breed");
-    const age = parseInt(formData.get("age"));
-    const location = formData.get("location");
-    const description = formData.get("description");
-    const image_url = formData.get("image_url");
-    const status = formData.get("status");
-    const created_at = new Date().toISOString();
-    const updated_at = new Date().toISOString();
+    // Show success message as a toast notification
+    toast.success("Post has been updated successfully!");
 
-    const defaultImg =
-      "https://t3.ftcdn.net/jpg/04/60/01/36/360_F_460013622_6xF8uN6ubMvLx0tAJECBHfKPoNOR5cRa.jpg";
-
-    const imageUrlToInsert = image_url || defaultImg;
-
-    await db.query(
-      `UPDATE pets SET user_id='${profileId}', name='${name}', species='${species}', breed='${breed}', age='${age}' ,location='${location}',description='${description}',image_url='${imageUrlToInsert}',status='${status}',created_at='${created_at}',updated_at='${updated_at}' WHERE id='${postId}'`
-    );
-    revalidatePath("/");
-  }
+    // Reset the form state
+    setFormState({
+      name: "",
+      species: "",
+      breed: "",
+      age: "",
+      location: "",
+      description: "",
+      image_url: "",
+      status: "available",
+    });
+  };
 
   return (
     <div>
+      <ToastContainer className="Toastify__toast-container--center" />
       <form
         className="bg-red-200 rounded-md p-2 flex flex-col items-end"
-        action={handleEditPost}
+        onSubmit={handleSubmit}
       >
         <div className="smallmargintop flex flex-col items-center">
           <p className="text-xl font-medium py-2">Edit post</p>
@@ -57,18 +60,31 @@ export default function EditPost({ postId }) {
             type="text"
             placeholder="Pet's Name"
             required
+            value={formState.name}
+            onChange={(e) =>
+              setFormState({ ...formState, name: e.target.value })
+            }
           />
 
           <label className="py-2" htmlFor="species">
             Species
           </label>
-          <Pets />
+          <Pets
+            value={formState.species}
+            onChange={(e) =>
+              setFormState({ ...formState, species: e.target.value })
+            }
+          />
 
           <label className="py-2" htmlFor="breed" name="breed">
             Breed
           </label>
-
-          <Breeds />
+          <Breeds
+            value={formState.breed}
+            onChange={(e) =>
+              setFormState({ ...formState, breed: e.target.value })
+            }
+          />
 
           <label className="py-2" htmlFor="age">
             Age (Years)
@@ -79,12 +95,21 @@ export default function EditPost({ postId }) {
             type="number"
             placeholder="Age"
             required
+            value={formState.age}
+            onChange={(e) =>
+              setFormState({ ...formState, age: e.target.value })
+            }
           />
 
           <label className="py-2" htmlFor="location">
             Location
           </label>
-          <Cities />
+          <Cities
+            value={formState.location}
+            onChange={(e) =>
+              setFormState({ ...formState, location: e.target.value })
+            }
+          />
 
           <label className="py-2" htmlFor="description">
             Description
@@ -95,6 +120,10 @@ export default function EditPost({ postId }) {
             type="text"
             placeholder="Tell us about your pet!"
             required
+            value={formState.description}
+            onChange={(e) =>
+              setFormState({ ...formState, description: e.target.value })
+            }
           />
 
           <label className="py-2" htmlFor="image">
@@ -105,6 +134,10 @@ export default function EditPost({ postId }) {
             name="image"
             type="file"
             accept="image/*"
+            value={formState.image_url}
+            onChange={(e) =>
+              setFormState({ ...formState, image_url: e.target.value })
+            }
           />
 
           <label className="py-2" htmlFor="status">
@@ -114,8 +147,12 @@ export default function EditPost({ postId }) {
             className="input border rounded-lg border-black p-2"
             name="status"
             required
+            value={formState.status}
+            onChange={(e) =>
+              setFormState({ ...formState, status: e.target.value })
+            }
           >
-            <option value="available">Avaliable</option>
+            <option value="available">Available</option>
             <option value="processing">Processing</option>
             <option value="adopted">Unavailable</option>
           </select>

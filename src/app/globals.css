@@ -89,6 +89,11 @@
 .custom-btn {
   @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none;
 }
+.Toastify__toast-container--center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 /* button {
   @apply py-2 px-4 bg-blue-500 text-white rounded-lg transition duration-300;

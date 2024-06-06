@@ -16,7 +16,7 @@ export default function ProfileForm() {
     await db.query(
       `UPDATE users2 SET username='${username}', email='${email}', location='${location}', bio='${bio}' WHERE clerk_id='${userId}'`
     );
-    revalidatePath("/");
+    revalidatePath("/profile");
   }
 
   return (
