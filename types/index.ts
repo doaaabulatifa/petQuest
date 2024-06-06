@@ -52,14 +52,14 @@ export interface CustomButtonProps {
 export interface OptionProps {
   species: string;
   location: string;
-  value:string;
-  title:string;
+  value: string;
+  title: string;
 }
 
-export interface CustomFilterProps {
-  title: string;
-  options: OptionProps[];
-}
+// export interface CustomFilterProps {
+//   title: string;
+//   options: OptionProps[];
+// }
 
 export interface ShowMoreProps {
   pageNumber: number;
