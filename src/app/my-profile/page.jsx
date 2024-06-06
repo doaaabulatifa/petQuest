@@ -1,7 +1,7 @@
 import { db } from "@/lib/db";
 import { revalidatePath } from "next/cache";
 import { auth } from "@clerk/nextjs/server";
-import { redirect } from "next/dist/server/api-utils";
+import { redirect } from "next/navigation";
 
 export default async function myProfile() {
   const { userId } = auth();
@@ -22,7 +22,7 @@ export default async function myProfile() {
       [username, email, bio, location, userId]
     );
     revalidatePath("/");
-    redirect("/");
+    redirect("/profile");
   }
 
   return (
