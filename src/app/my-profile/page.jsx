@@ -34,9 +34,9 @@ export default async function myProfile() {
       <form action={editProfile}>
         <label>Name</label>
         <input
-          name="user_name"
+          name="username"
           placeholder="your Name"
-          defaultValue={profile.user_name}
+          defaultValue={profile.username}
         />
         <input
           name="email"
