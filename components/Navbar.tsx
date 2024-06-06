@@ -22,7 +22,9 @@ const NavBar = () => (
         </div>
       </SignedOut>
       <SignedIn>
-        <UserButton />
+        <div className="w-28 flex justify-center">
+          <UserButton />
+        </div>
       </SignedIn>
     </nav>
   </header>
