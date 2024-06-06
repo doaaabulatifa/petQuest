@@ -17,8 +17,16 @@
   @apply border rounded-lg resize-none p-2 h-40 w-96;
 }
 
+.textareamobile {
+  @apply border rounded-lg resize-none p-2 h-40 w-64;
+}
+
 .input {
   @apply w-96;
+}
+
+.input2 {
+  @apply w-64;
 }
 
 .formcontainer {
@@ -34,7 +42,7 @@
 }
 
 .about {
-  @apply w-1/2 p-16;
+  @apply max-w-screen-lg p-16;
 }
 
 .petimage {
@@ -43,6 +51,10 @@
 
 .petimage2 {
   @apply h-96 w-60 object-cover rounded-lg;
+}
+
+.petimage3 {
+  @apply h-64 w-64 object-cover rounded-lg;
 }
 
 .petcardimage {
