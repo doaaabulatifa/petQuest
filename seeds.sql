@@ -54,11 +54,23 @@ CREATE TABLE Likes (
 );
 
 -- Create Adoption_Requests Table
-CREATE TABLE Adoption_Requests (
+CREATE TABLE adoption_requests (
     id SERIAL PRIMARY KEY,
-    user_id INT REFERENCES users2(id) ON DELETE CASCADE,
-    pet_id INT REFERENCES Pets(id) ON DELETE CASCADE,
-    status TEXT DEFAULT 'pending',
-    message TEXT,
+    user_id INTEGER REFERENCES users2(id),
+    pet_id INTEGER REFERENCES pets(id),
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    address TEXT,
+    telephone VARCHAR(20) NOT NULL,
+    age_of_youngest_child INTEGER,
+    details_of_other_pets TEXT,
+    are_other_pets_neutered BOOLEAN,
+    has_secure_outdoor_area BOOLEAN NOT NULL,
+    where_will_animal_sleep TEXT,
+    will_animal_be_left_alone BOOLEAN,
+    other_details TEXT,
+    previous_convictions BOOLEAN,
+    terms_and_conditions BOOLEAN,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

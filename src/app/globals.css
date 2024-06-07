@@ -278,7 +278,7 @@
 }
 /* END: searchbar styles */
 
-/* START: search manufacturer styles */
+/* START: search styles */
 .search-breed {
   @apply flex-1 max-sm:w-full flex justify-start items-center;
 }
@@ -295,4 +295,6 @@
   @apply cursor-default select-none py-2 pl-10 pr-4;
 }
 
-/* END: search manufacturer styles */
+/* END: search styles */
+
+
