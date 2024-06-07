@@ -1,4 +1,4 @@
-# 🐾 https://pet-quest.vercel.app 🐾
+# 🐾 pet-quest-app.vercel.app  🐾
 
 ## petQuest
 
