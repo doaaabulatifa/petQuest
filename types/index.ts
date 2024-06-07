@@ -35,6 +35,8 @@ export interface FilterProps {
   limit?: number;
   offset?: number;
   breed?: string;
+  colour?: string;
+  sex?: string;
 }
 
 export interface HomeProps {

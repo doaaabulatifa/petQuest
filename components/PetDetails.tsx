@@ -78,7 +78,7 @@ const PetDetails = ({ isOpen, closeModal, pet }: PetDetailsProps) => (
                   <div className='mt-3 flex flex-wrap gap-4'>
                     {Object.entries(pet).map(([key, value]) => {
                       // Define an array of property keys to include
-                      const includedKeys = ['name', 'age', 'breed', 'location', 'description'];
+                      const includedKeys = ['name', 'age', 'species','breed', 'location', 'description', 'status'];
 
                       // Check if the current key is included in the array of includedKeys
                       if (includedKeys.includes(key)) {
